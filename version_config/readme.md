@@ -18,7 +18,7 @@
 ```
 opkg install openssh-sftp-server; ln -s /opt/libexec/sftp-server /usr/libexec/sftp-server
 ```
-мой выбор программы доступа для винды это: `Bitvise SSH Client`
+мой выбор программы доступа для винды это: [**Bitvise SSH Client**](https://www.bitvise.com/ssh-client-download)
 
 
 ![](config.jpg)
