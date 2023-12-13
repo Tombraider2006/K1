@@ -18,6 +18,10 @@
 ```
 opkg install openssh-sftp-server; ln -s /opt/libexec/sftp-server /usr/libexec/sftp-server
 ```
+
+**если возникает проблема с загрузкой Fluid или Mainsail** необходимо доустонавить еще компонент ```opkg install wget-ssl```
+
+
 мой выбор программы доступа для винды это: [**Bitvise SSH Client**](https://www.bitvise.com/ssh-client-download)
 
 
