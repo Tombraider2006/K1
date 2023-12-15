@@ -25,4 +25,32 @@ opkg install openssh-sftp-server; ln -s /opt/libexec/sftp-server /usr/libexec/sf
 мой выбор программы доступа для винды это: [**Bitvise SSH Client**](https://www.bitvise.com/ssh-client-download)
 
 
+**если ваш слайсер PRUSA и у вас не работает исключение обьектов:**
+
+ вот это добавьте в конфиг  gcode_macro.cfg
+```
+[gcode_macro DEFINE_OBJECT]
+gcode:
+  EXCLUDE_OBJECT_DEFINE {rawparams}
+
+[gcode_macro START_CURRENT_OBJECT]
+gcode:
+  EXCLUDE_OBJECT_START NAME={params.NAME}
+
+[gcode_macro END_CURRENT_OBJECT]
+gcode:
+  EXCLUDE_OBJECT_END {% if params.NAME %}NAME={params.NAME}{% endif %}
+
+[gcode_macro LIST_OBJECTS]
+gcode:
+  EXCLUDE_OBJECT_DEFINE
+
+[gcode_macro LIST_EXCLUDED_OBJECTS]
+gcode:
+  EXCLUDE_OBJECT
+
+[gcode_macro REMOVE_ALL_EXCLUDED]
+gcode:
+  EXCLUDE_OBJECT RESET=1
+```
 ![](config.jpg)
