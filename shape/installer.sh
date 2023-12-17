@@ -31,7 +31,7 @@ fi
 mkdir -p $K1_CONFIG_DIR/shape/scripts
 cp $K1_SHAPE_DIR/scripts/*.cfg $K1_CONFIG_DIR/shape
 cp $K1_SHAPE_DIR/scripts/*.py $K1_CONFIG_DIR/shape/scripts
-cp $K1_SHAPE_DIR/scripts/*.sh $K1_CONFIG_DIR/shape/scripts
+cp $K1_SHAPE_DIR/scripts/calibrate.sh $K1_CONFIG_DIR/shape/scripts
 
 ## include shape *.cfg in printer.cfg
 if grep -q "include shape" $K1_CONFIG_DIR/printer.cfg ; then
