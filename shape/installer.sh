@@ -29,11 +29,6 @@ echo "download/extract latest shape"
 /tmp/curl -L https://raw.githubusercontent.com/Tombraider2006/K1/main/shape/shape.tar.gz -o /tmp/shape.tar.gz
 tar xvf /tmp/shape.tar.gz -C /usr/data/shape
 
-if [ ! -f "$K1_SHAPE_DIR/shape" ]; then
-    printf "${red}Did not find shaper 1 in $K1_SHAPE_DIR.  must be extracted in $K1_SHAPE_DIR ${white}\n"
-    exit 1
-fi
-
 printf "${green}Setting up shape ${white}\n"
 cp $K1_SHAPE_DIR/k1_mods/calibrate_shaper_config.py $SHAPER_CONFIG
 
