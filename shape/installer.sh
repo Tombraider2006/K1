@@ -31,18 +31,18 @@ mkdir -p /usr/data/shape
 tar xvf /tmp/shape.tar.gz -C /usr/data/shape
 
 printf "${green}Setting up shape ${white}\n"
-cp $K1_SHAPE_DIR/k1_mods/calibrate_shaper_config.py $SHAPER_CONFIG
+cp $K1_SHAPE_DIR/k1mods/calibrate_shaper_config.py $SHAPER_CONFIG
 
 if [ ! -d "/usr/lib/python3.8/site-packages/matplotlib-2.2.3-py3.8.egg-info" ]; then
     echo "Not replacing mathplotlib ft2font module. PSD graphs might not work"
 else
     printf "${green}Replacing mathplotlib ft2font module for plotting PSD graphs ${white}\n"
-    cp $K1_SHAPE_DIR/k1_mods/ft2font.cpython-38-mipsel-linux-gnu.so $FT2FONT_PATH
+    cp $K1_SHAPE_DIR/k1mods/ft2font.cpython-38-mipsel-linux-gnu.so $FT2FONT_PATH
 fi
 
 if [ ! -f $GCODE_SHELL_CMD ]; then
     printf "${green}Installing gcode_shell_command.py for klippy ${white}\n"
-    cp $K1_SHAPE_DIR/k1_mods/gcode_shell_command.py $GCODE_SHELL_CMD
+    cp $K1_SHAPE_DIR/k1mods/gcode_shell_command.py $GCODE_SHELL_CMD
 fi
 
 mkdir -p $K1_CONFIG_DIR/shape/scripts
