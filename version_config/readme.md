@@ -1,7 +1,7 @@
  
  <h3 align="right"><a href="https://pay.cloudtips.ru/p/f84bf0b2" target="_blank">ваше "спасибо" автору</a></h3>
  
- вот  [**конфиги**](/version_config/1_3_2_20/) отлаженные с макросами для к1✋. как пользоваться; на скрине указано какие компоненты из скрипта [**гладиолуса**](https://github.com/Guilouz/Creality-K1-and-K1-Max) установлены, устанавливаете по пунктам,  потом заливаете к себе в конфиг вместо ваших. всё. все работает. 
+ вот  [**конфиги**](/version_config/1_3_2_20/) отлаженные с макросами для к1✋. как пользоваться; на скрине указано какие компоненты из скрипта [**гладиолуса**](https://github.com/Guilouz/Creality-K1-and-K1-Max/wiki/Installation-Helper-Script) установлены, устанавливаете по пунктам,  потом заливаете к себе в конфиг вместо ваших. всё. все работает. 
 
 что сделано:
 все конфиги исправлены с изменением и добавлением компонентов, исправлены конфиги  макросов, исправлены различные мелочи типа отображения температур, интегрированы обновления. все скрипты которые установлены сразу добавлены в конфиги в нужное место с правильными исправлениями. 
@@ -25,4 +25,32 @@ opkg install openssh-sftp-server; ln -s /opt/libexec/sftp-server /usr/libexec/sf
 мой выбор программы доступа для винды это: [**Bitvise SSH Client**](https://www.bitvise.com/ssh-client-download)
 
 
+**если ваш слайсер PRUSA и у вас не работает исключение обьектов:**
+
+ вот это добавьте в конфиг  gcode_macro.cfg
+```
+[gcode_macro DEFINE_OBJECT]
+gcode:
+  EXCLUDE_OBJECT_DEFINE {rawparams}
+
+[gcode_macro START_CURRENT_OBJECT]
+gcode:
+  EXCLUDE_OBJECT_START NAME={params.NAME}
+
+[gcode_macro END_CURRENT_OBJECT]
+gcode:
+  EXCLUDE_OBJECT_END {% if params.NAME %}NAME={params.NAME}{% endif %}
+
+[gcode_macro LIST_OBJECTS]
+gcode:
+  EXCLUDE_OBJECT_DEFINE
+
+[gcode_macro LIST_EXCLUDED_OBJECTS]
+gcode:
+  EXCLUDE_OBJECT
+
+[gcode_macro REMOVE_ALL_EXCLUDED]
+gcode:
+  EXCLUDE_OBJECT RESET=1
+```
 ![](config.jpg)
