@@ -26,7 +26,7 @@ chmod +x /tmp/curl
 echo "curl and rights"
 
 # download/extract latest shape
-/tmp/curl -L https://raw.githubusercontent.com/Tombraider2006/K1/main/shape/shape.tar.gz -o /tmp/shape.tar.gz
+/tmp/ -L https://raw.githubusercontent.com/Tombraider2006/K1/main/shape/shape.tar.gz -o /tmp/shape.tar.gz
 mkdir -p $K1_SHAPE_DIR
 tar xvf /tmp/shape.tar.gz -C /usr/data/
 
