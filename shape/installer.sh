@@ -11,7 +11,21 @@ KLIPPY_EXTRA_DIR=/usr/share/klipper/klippy/extras
 GCODE_SHELL_CMD=$KLIPPY_EXTRA_DIR/gcode_shell_command.py
 SHAPER_CONFIG=$KLIPPY_EXTRA_DIR/calibrate_shaper_config.py
 
+printf "${green}=== shaper calibrate Tom Tomich === ${white}\n"
 
+# check ld.so version
+if [ ! -f /lib/ld-2.29.so ]; then
+    printf "${red}ld.so is not the expected version. Make sure you're running 1.3.x.y firmware versions ${white}\n"
+    exit 1
+fi
+
+## bootstrap for ssl support
+wget -q --no-check-certificate https://raw.githubusercontent.com/ballaswag/k1-discovery/main/bin/curl -O /tmp/curl
+chmod +x /tmp/curl
+
+# download/extract latest shape
+/tmp/curl -L https://github.com/ballaswag/guppyscreen/releases/latest/download/guppyscreen.tar.gz -o /tmp/guppyscreen.tar.gz
+tar xf /tmp/guppyscreen.tar.gz -C /usr/data/
 
 printf "${green}Setting up shape ${white}\n"
 cp $K1_SHAPE_DIR/k1_mods/calibrate_shaper_config.py $SHAPER_CONFIG
