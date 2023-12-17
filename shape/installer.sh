@@ -46,7 +46,7 @@ if [ ! -f $GCODE_SHELL_CMD ]; then
 fi
 
 mkdir -p $K1_CONFIG_DIR/shape/scripts
-cp $K1_SHAPE_DIR/scripts/*.cfg $K1_CONFIG_DIR/shape
+cp $K1_SHAPE_DIR/scripts/*.cfg $K1_CONFIG_DIR/shape/scripts
 cp $K1_SHAPE_DIR/scripts/*.py $K1_CONFIG_DIR/shape/scripts
 cp $K1_SHAPE_DIR/scripts/calibrate.sh $K1_CONFIG_DIR/shape/scripts
 
@@ -55,7 +55,7 @@ if grep -q "include shape" $K1_CONFIG_DIR/printer.cfg ; then
     echo "printer.cfg already includes shape cfgs"
 else
     printf "${green}Including shape cfgs in printer.cfg ${white}\n"
-    sed -i '/\[include gcode_macro\.cfg\]/a \[include shape/*\.cfg\]' $K1_CONFIG_DIR/printer.cfg
+    sed -i '/\[include gcode_macro\.cfg\]/a \[include shape/scripts/shape/*\.cfg\]' $K1_CONFIG_DIR/printer.cfg
 fi
 
 sync
