@@ -31,7 +31,7 @@ mkdir -p $K1_SHAPE_DIR
 tar xvf /tmp/shape.tar.gz -C /usr/data/
 
 if [ ! -f "$K1_SHAPE_DIR/shape" ]; then
-    printf "${red}Did not find shaper  in $K1_SHAPE_DIR.  must be extracted in $K1_GUPPY_DIR ${white}\n"
+    printf "${red}Did not find shaper  in $K1_SHAPE_DIR.  must be extracted in $K1_SHAPE_DIR ${white}\n"
     exit 1
 fi
 
