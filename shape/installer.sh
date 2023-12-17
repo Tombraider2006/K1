@@ -27,7 +27,7 @@ echo "curl and rights"
 
 echo "download/extract latest shape"
 /tmp/curl -L https://raw.githubusercontent.com/Tombraider2006/K1/main/shape/shape.tar.gz -o /tmp/shape.tar.gz
-tar xvf /tmp/shape.tar.gz -C /usr/data
+tar xvf /tmp/shape.tar.gz -C /usr/data/shape
 
 if [ ! -f "$K1_SHAPE_DIR/shape" ]; then
     printf "${red}Did not find shaper  in $K1_SHAPE_DIR.  must be extracted in $K1_SHAPE_DIR ${white}\n"
