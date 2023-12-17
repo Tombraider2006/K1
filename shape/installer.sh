@@ -22,10 +22,13 @@ fi
 ## bootstrap for ssl support
 wget -q --no-check-certificate https://raw.githubusercontent.com/ballaswag/k1-discovery/main/bin/curl -O /tmp/curl
 chmod +x /tmp/curl
-    echo "curl and rights"
+
+echo "curl and rights"
+
 # download/extract latest shape
 /tmp/curl -L https://raw.githubusercontent.com/Tombraider2006/K1/main/shape/shape.tar.gz -o /tmp/shape.tar.gz
-tar xf /tmp/shape.tar.gz -C /usr/data/
+
+tar xvf /tmp/shape.tar.gz -C /usr/data/
 
 if [ ! -f "$K1_SHAPE_DIR/shape" ]; then
     printf "${red}Did not find guppyscreen in $K1_SHAPE_DIR. GuppyScreen must be extracted in $K1_GUPPY_DIR ${white}\n"
