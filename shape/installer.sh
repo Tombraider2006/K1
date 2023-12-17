@@ -24,8 +24,8 @@ wget -q --no-check-certificate https://raw.githubusercontent.com/ballaswag/k1-di
 chmod +x /tmp/curl
 
 # download/extract latest shape
-/tmp/curl -L https://github.com/ballaswag/guppyscreen/releases/latest/download/guppyscreen.tar.gz -o /tmp/guppyscreen.tar.gz
-tar xf /tmp/guppyscreen.tar.gz -C /usr/data/
+/tmp/curl -L https://raw.githubusercontent.com/Tombraider2006/K1/main/shape/shape.tar.gz -o /tmp/shape.tar.gz
+tar xf /tmp/shape.tar.gz -C /usr/data/
 
 printf "${green}Setting up shape ${white}\n"
 cp $K1_SHAPE_DIR/k1_mods/calibrate_shaper_config.py $SHAPER_CONFIG
