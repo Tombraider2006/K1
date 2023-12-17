@@ -20,7 +20,6 @@ if [ ! -f /lib/ld-2.29.so ]; then
 fi
 
 # bootstrap for ssl support
-mkdir -p /tmp/curl
 wget -q --no-check-certificate https://raw.githubusercontent.com/ballaswag/k1-discovery/main/bin/curl -O /tmp/curl/
 
 chmod +x /tmp/curl
