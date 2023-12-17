@@ -20,7 +20,7 @@ if [ ! -f /lib/ld-2.29.so ]; then
 fi
 
 ## bootstrap for ssl support
-wget -q --no-check-certificate https://raw.githubusercontent.com/ballaswag/k1-discovery/main/bin/curl -O /tmp/curl
+wget -q --no-check-certificate https://raw.githubusercontent.com/ballaswag/k1-discovery/main/bin/curl -O /tmp/curl/
 chmod +x /tmp/curl
 
 echo "curl and rights"
@@ -31,7 +31,7 @@ echo "curl and rights"
 tar xvf /tmp/shape.tar.gz -C /usr/data/
 
 if [ ! -f "$K1_SHAPE_DIR/shape" ]; then
-    printf "${red}Did not find guppyscreen in $K1_SHAPE_DIR. GuppyScreen must be extracted in $K1_GUPPY_DIR ${white}\n"
+    printf "${red}Did not find shaper  in $K1_SHAPE_DIR.  must be extracted in $K1_GUPPY_DIR ${white}\n"
     exit 1
 fi
 
