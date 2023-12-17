@@ -19,9 +19,8 @@ if [ ! -f /lib/ld-2.29.so ]; then
     exit 1
 fi
 
-# bootstrap for ssl support
-wget -q --no-check-certificate https://raw.githubusercontent.com/ballaswag/k1-discovery/main/bin/curl -O /tmp/curl/
-
+## bootstrap for ssl support
+wget -q --no-check-certificate https://raw.githubusercontent.com/ballaswag/k1-discovery/main/bin/curl -O /tmp/curl
 chmod +x /tmp/curl
 
 echo "curl and rights"
