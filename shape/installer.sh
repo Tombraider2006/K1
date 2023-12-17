@@ -19,12 +19,8 @@ if [ ! -f /lib/ld-2.29.so ]; then
     exit 1
 fi
 
-## bootstrap for ssl support
-wget -q --no-check-certificate https://raw.githubusercontent.com/ballaswag/k1-discovery/main/bin/curl -O /tmp/curl
-chmod +x /tmp/curl
-
 # download/extract latest shape
-/tmp/curl -L https://raw.githubusercontent.com/Tombraider2006/K1/main/shape/shape.tar.gz -o /tmp/shape.tar.gz
+/tmp/ -L https://raw.githubusercontent.com/Tombraider2006/K1/main/shape/shape.tar.gz -o /tmp/shape.tar.gz
 tar xf /tmp/shape.tar.gz -C /usr/data/
 
 printf "${green}Setting up shape ${white}\n"
