@@ -28,12 +28,12 @@ if [ ! -f $GCODE_SHELL_CMD ]; then
     cp $K1_SHAPE_DIR/k1_mods/gcode_shell_command.py $GCODE_SHELL_CMD
 fi
 
-mkdir -p $K1_CONFIG_DIR/SHAPE/scripts
+mkdir -p $K1_CONFIG_DIR/shape/scripts
 cp $K1_SHAPE_DIR/scripts/*.cfg $K1_CONFIG_DIR/shape
 cp $K1_SHAPE_DIR/scripts/*.py $K1_CONFIG_DIR/shape/scripts
 
 ## include SHAPE *.cfg in printer.cfg
-if grep -q "include SHAPE" $K1_CONFIG_DIR/printer.cfg ; then
+if grep -q "include shape" $K1_CONFIG_DIR/printer.cfg ; then
     echo "printer.cfg already includes shape cfgs"
 else
     printf "${green}Including SHAPE cfgs in printer.cfg ${white}\n"
