@@ -27,6 +27,11 @@ chmod +x /tmp/curl
 /tmp/curl -L https://raw.githubusercontent.com/Tombraider2006/K1/main/shape/shape.tar.gz -o /tmp/shape.tar.gz
 tar xf /tmp/shape.tar.gz -C /usr/data/
 
+if [ ! -f "$K1_SHAPE_DIR/shape" ]; then
+    printf "${red}Did not find guppyscreen in $K1_SHAPE_DIR. GuppyScreen must be extracted in $K1_GUPPY_DIR ${white}\n"
+    exit 1
+fi
+
 printf "${green}Setting up shape ${white}\n"
 cp $K1_SHAPE_DIR/k1_mods/calibrate_shaper_config.py $SHAPER_CONFIG
 
