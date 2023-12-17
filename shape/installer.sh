@@ -13,7 +13,7 @@ SHAPER_CONFIG=$KLIPPY_EXTRA_DIR/calibrate_shaper_config.py
 
 
 
-printf "${green}Setting up SHAPE ${white}\n"
+printf "${green}Setting up shape ${white}\n"
 cp $K1_SHAPE_DIR/k1_mods/calibrate_shaper_config.py $SHAPER_CONFIG
 
 if [ ! -d "/usr/lib/python3.8/site-packages/matplotlib-2.2.3-py3.8.egg-info" ]; then
@@ -32,18 +32,18 @@ mkdir -p $K1_CONFIG_DIR/shape/scripts
 cp $K1_SHAPE_DIR/scripts/*.cfg $K1_CONFIG_DIR/shape
 cp $K1_SHAPE_DIR/scripts/*.py $K1_CONFIG_DIR/shape/scripts
 
-## include SHAPE *.cfg in printer.cfg
+## include shape *.cfg in printer.cfg
 if grep -q "include shape" $K1_CONFIG_DIR/printer.cfg ; then
     echo "printer.cfg already includes shape cfgs"
 else
-    printf "${green}Including SHAPE cfgs in printer.cfg ${white}\n"
+    printf "${green}Including shape cfgs in printer.cfg ${white}\n"
     sed -i '/\[include gcode_macro\.cfg\]/a \[include shape/*\.cfg\]' $K1_CONFIG_DIR/printer.cfg
 fi
 
 sync
 
-if [ ! -f $K1_SHAPE_DIR/ ]; then
-    printf "${red}Installation failed, did not find SHAPE in $K1_SHAPE_DIR. Make sure to extract the SHAPE directory in /usr/data. ${white}\n" 
+if [ ! -f $K1_shape_DIR/ ]; then
+    printf "${red}Installation failed, did not find shape in $K1_SHAPE_DIR. Make sure to extract the shape directory in /usr/data. ${white}\n" 
     exit 1
 fi
 
@@ -57,7 +57,7 @@ if [ "$confirm" = "y" -o "$confirm" = "Y" ]; then
     echo "Restarting Klipper"
     /etc/init.d/S55klipper_service restart
 else
-    printf "${red}Some SHAPE functionaly won't work until Klipper is restarted. ${white}\n"
+    printf "${red}Some shape functionaly won't work until Klipper is restarted. ${white}\n"
 fi
 
 echo "Killing Creality services"
@@ -68,4 +68,4 @@ killall app-server
 killall upgrade-server
 killall web-server
 
-printf "${green}Starting SHAPE ${white}\n"
+printf "${green}Starting shape ${white}\n"
