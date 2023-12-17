@@ -27,7 +27,7 @@ echo "curl and rights"
 
 echo "download/extract latest shape"
 /tmp/curl -L https://raw.githubusercontent.com/Tombraider2006/K1/main/shape/shape.tar.gz -o /tmp/shape.tar.gz
-mkdir -p /usr/data
+mkdir -p /usr/data/shape
 tar xvf /tmp/shape.tar.gz -C /usr/data/shape
 
 printf "${green}Setting up shape ${white}\n"
