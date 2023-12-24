@@ -57,8 +57,6 @@ sync
 if [ ! -f $K1_SHAPE_DIR ]; then
     printf "${red}Installation failed, did not find shape in $K1_SHAPE_DIR. Make sure to extract the shape directory in /usr/data. ${white}\n" 
     exit 1
-fi
-
 
 ## request to reboot
 printf "Restart Klipper now to pick up the new changes (y/n): "
