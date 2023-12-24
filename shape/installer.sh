@@ -4,8 +4,8 @@ green=`echo "\033[01;32m"`
 red=`echo "\033[01;31m"`
 white=`echo "\033[m"`
 
-K1_CONFIG_DIR=/usr/data/printer_data/config
-K1_SHAPE_DIR=/usr/data/shape
+
+K1_SHAPE_DIR=/usr/data/printer_data/config
 FT2FONT_PATH=/usr/lib/python3.8/site-packages/matplotlib/ft2font.cpython-38-mipsel-linux-gnu.so
 KLIPPY_EXTRA_DIR=/usr/share/klipper/klippy/extras
 GCODE_SHELL_CMD=$KLIPPY_EXTRA_DIR/gcode_shell_command.py
@@ -45,11 +45,11 @@ if [ ! -f $GCODE_SHELL_CMD ]; then
     cp $K1_SHAPE_DIR/k1mods/gcode_shell_command.py $GCODE_SHELL_CMD
 
 ## include shape *.cfg in printer.cfg
-if grep -q "include shape" $K1_CONFIG_DIR/printer.cfg ; then
+if grep -q "include shape" $K1_SHAPE_DIR/printer.cfg ; then
     echo "printer.cfg already includes shape cfgs"
 else
     printf "${green}Including shape cfgs in printer.cfg ${white}\n"
-    sed -i '/\[include gcode_macro\.cfg\]/a \[include shape/scripts/shape/*\.cfg\]' $K1_CONFIG_DIR/printer.cfg
+    sed -i '/\[include gcode_macro\.cfg\]/a \[include shape/scripts/shape/*\.cfg\]' $K1_SHAPE_DIR/printer.cfg
 fi
 
 sync
