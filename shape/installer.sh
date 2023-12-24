@@ -27,8 +27,8 @@ echo "curl and rights"
 
 echo "download/extract latest shape"
 /tmp/curl -L https://raw.githubusercontent.com/Tombraider2006/K1/main/shape/shape.tar.gz -o /tmp/shape.tar.gz
-mkdir -p /usr/data/shape
-tar xvf /tmp/shape.tar.gz -C /usr/data/shape
+mkdir -p /usr/data/printer_data/config/shape
+tar xvf /tmp/shape.tar.gz -C /usr/data/printer_data/config/shape
 
 printf "${green}Setting up shape ${white}\n"
 cp $K1_SHAPE_DIR/k1mods/calibrate_shaper_config.py $SHAPER_CONFIG
@@ -43,12 +43,6 @@ fi
 if [ ! -f $GCODE_SHELL_CMD ]; then
     printf "${green}Installing gcode_shell_command.py for klippy ${white}\n"
     cp $K1_SHAPE_DIR/k1mods/gcode_shell_command.py $GCODE_SHELL_CMD
-fi
-
-mkdir -p $K1_CONFIG_DIR/shape/scripts
-cp $K1_SHAPE_DIR/scripts/*.cfg $K1_CONFIG_DIR/shape/scripts
-cp $K1_SHAPE_DIR/scripts/*.py $K1_CONFIG_DIR/shape/scripts
-cp $K1_SHAPE_DIR/scripts/calibrate.sh $K1_CONFIG_DIR/shape/scripts
 
 ## include shape *.cfg in printer.cfg
 if grep -q "include shape" $K1_CONFIG_DIR/printer.cfg ; then
@@ -60,7 +54,7 @@ fi
 
 sync
 
-if [ ! -f $K1_SHAPE_DIR/ ]; then
+if [ ! -f $K1_SHAPE_DIR ]; then
     printf "${red}Installation failed, did not find shape in $K1_SHAPE_DIR. Make sure to extract the shape directory in /usr/data. ${white}\n" 
     exit 1
 fi
