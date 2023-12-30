@@ -55,7 +55,7 @@ fi
 sync
 
 if [ ! -f $K1_SHAPE_DIR ]; then
-    printf "${red}Installation failed, did not find shape in $K1_SHAPE_DIR. Make sure to extract the shape directory in /usr/data. ${white}\n" 
+    printf "${red}Installation failed, did not find shape in $K1_SHAPE_DIR. Make sure to extract the shape directory in /usr/data/printer_data/config. ${white}\n" 
     exit 1
 
 ## request to reboot
