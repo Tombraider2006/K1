@@ -43,7 +43,7 @@ fi
 if [ ! -f $GCODE_SHELL_CMD ]; then
     printf "${green}Installing gcode_shell_command.py for klippy ${white}\n"
     cp $K1_SHAPE_DIR/k1mods/gcode_shell_command.py $GCODE_SHELL_CMD
-
+fi
 ## include shape *.cfg in printer.cfg
 if grep -q "include shape" $K1_SHAPE_DIR/printer.cfg ; then
     echo "printer.cfg already includes shape cfgs"
