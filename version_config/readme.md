@@ -1,4 +1,8 @@
  
+
+<h3 align="right"><a href="https://pay.cloudtips.ru/p/f84bf0b2" target="_blank">ваше "спасибо" автору</a></h3>
+
+
   <h1>Инструкция к прошивке 1.3.3.5!</h1>
  
  вот [**конфиги скачать для K1MAX**](/version_config/k1max_1_3_3_5.zip) установка аналогична
