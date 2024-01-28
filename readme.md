@@ -1,3 +1,6 @@
+<h3 align="right"><a href="https://pay.cloudtips.ru/p/f84bf0b2" target="_blank">ваше "спасибо" автору</a></h3>
+
+
 [**CREALITY K1 FAQ перед первым включением.**](before_use.md)
 
 [**Построение графиков шейперов**](shaper_craft.md)
