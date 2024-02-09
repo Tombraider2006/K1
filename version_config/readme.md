@@ -56,8 +56,9 @@
 на картинке указано как выглядит окошко куда надо вставлять стартовый и конечный код для корректной работы тестов.
 
 ```
-START_PRINT EXTRUDER_TEMP=$HOTTEMP BED_TEMP=$BEDTEMP
 SET_PIN PIN=KAMP VALUE=0
+START_PRINT EXTRUDER_TEMP=$HOTTEMP BED_TEMP=$BEDTEMP
+
 ```
 стартовый код
 
