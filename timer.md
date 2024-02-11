@@ -29,32 +29,32 @@ scale: 1440
 [delayed_gcode wait_timer] 
  # initial_duration: 2.
 gcode:
-	{% if printer['output_pin timer'].value > 0 %}
-   	{% set WAIT = printer['output_pin timer'].value * 1440|float %}
+    {% if printer['output_pin timer'].value > 0 %}
+    {% set WAIT = printer['output_pin timer'].value * 1440|float %}
     {% set WAIT_ROUNDED = WAIT|int %}
-    	{% if WAIT - WAIT_ROUNDED >= 0.5 %}
-       {% set WAIT_ROUNDED = WAIT_ROUNDED + 1 %}
-   	 {% endif %}
-  		RESPOND MSG="Waiting... {WAIT_ROUNDED} minutes remaining."
+    {% if WAIT - WAIT_ROUNDED >= 0.5 %}
+    {% set WAIT_ROUNDED = WAIT_ROUNDED + 1 %}
+    {% endif %}
+      RESPOND MSG="Waiting... {WAIT_ROUNDED} minutes remaining."
       {% set WAIT_ROUND_COUNT = WAIT_ROUNDED - 1 %}
-  		SET_PIN PIN=timer VALUE={WAIT_ROUND_COUNT}
-  		UPDATE_DELAYED_GCODE ID=wait_timer DURATION=60
+      SET_PIN PIN=timer VALUE={WAIT_ROUND_COUNT}
+      UPDATE_DELAYED_GCODE ID=wait_timer DURATION=60
       WAIT_TIMER_START
- 	  {% else %}
-    RESPOND MSG="Wait Time End"
-    WAIT_TIMER_END	
-  {% endif %}
+    {% else %}
+     RESPOND MSG="Wait Time End"
+     WAIT_TIMER_END	
+    {% endif %}
  
 
 [gcode_macro WAIT_TIMER_START]
 gcode:
   UPDATE_DELAYED_GCODE ID=wait_timer DURATION=1
-		{% for s in range(0, 4) %}
-      SET_PIN PIN=LED VALUE=0.25
-      G4 P14000
-      SET_PIN PIN=LED VALUE=0.5
-      G4 P1000
-		{% endfor %}
+  {% for s in range(0, 4) %}
+  SET_PIN PIN=LED VALUE=0.25
+  G4 P14000
+  SET_PIN PIN=LED VALUE=0.5
+  G4 P1000
+  {% endfor %}
 
 [gcode_macro WAIT_TIMER_END]
 gcode:
