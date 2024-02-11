@@ -24,31 +24,42 @@ pin: virtual_pin:timer_pin
 pwm: True
 value: 0
 scale: 1440
-shutdown_value: 0
 
-[gcode_macro TIMER_BEFORE_PRINT]
-description: delayed printing in minutes
+
+[delayed_gcode wait_timer] 
+ # initial_duration: 2.
 gcode:
-  {% if printer['output_pin timer'].value > 0 %}
-    {% set WAIT = printer['output_pin timer'].value * 1440|float %}
+	{% if printer['output_pin timer'].value > 0 %}
+   	{% set WAIT = printer['output_pin timer'].value * 1440|float %}
     {% set WAIT_ROUNDED = WAIT|int %}
-    {% if WAIT - WAIT_ROUNDED >= 0.5 %}
-      {% set WAIT_ROUNDED = WAIT_ROUNDED + 1 %}
-    {% endif %}
-    RESPOND MSG="Waiting... {WAIT_ROUNDED} minutes remaining."
-        {% for i in range(0, WAIT_ROUNDED) %}
-          RESPOND MSG="Waiting... {WAIT_ROUNDED-i} minutes remaining."
-          {% for s in range(0, 4) %}
-            SET_PIN PIN=LED VALUE=0.25
-            G4 P14000
-            SET_PIN PIN=LED VALUE=0.5
-            G4 P1000
-        {% endfor %}
-    {% endfor %}
-    SET_PIN PIN=LED VALUE=1
-  {% else %}
-    RESPOND MSG="Wait Time not enabled!"
+    	{% if WAIT - WAIT_ROUNDED >= 0.5 %}
+       {% set WAIT_ROUNDED = WAIT_ROUNDED + 1 %}
+   	 {% endif %}
+  		RESPOND MSG="Waiting... {WAIT_ROUNDED} minutes remaining."
+      {% set WAIT_ROUND_COUNT = WAIT_ROUNDED - 1 %}
+  		SET_PIN PIN=timer VALUE={WAIT_ROUND_COUNT}
+  		UPDATE_DELAYED_GCODE ID=wait_timer DURATION=60
+      WAIT_TIMER_START
+ 	  {% else %}
+    RESPOND MSG="Wait Time End"
+    WAIT_TIMER_END	
   {% endif %}
+ 
+
+[gcode_macro WAIT_TIMER_START]
+gcode:
+  UPDATE_DELAYED_GCODE ID=wait_timer DURATION=1
+		{% for s in range(0, 4) %}
+      SET_PIN PIN=LED VALUE=0.25
+      G4 P14000
+      SET_PIN PIN=LED VALUE=0.5
+      G4 P1000
+		{% endfor %}
+
+[gcode_macro WAIT_TIMER_END]
+gcode:
+  UPDATE_DELAYED_GCODE ID=wait_timer DURATION=0
+  SET_PIN PIN=LED VALUE=1
 
 ```
 сохраняем без перезагрузки
@@ -56,12 +67,12 @@ gcode:
 **3.**  в папке /Helper-Script/KAMP ищем файл `Start_Print.cfg`
    и сразу после строки `gcode:` нажимаем Enter и вписываем:
 ```
-TIMER_BEFORE_PRINT
+WAIT_TIMER_START
 ```
 
 получится как то так как то так:
 
-![](start_print.jpg)
+![](timer_start.jpg)
 
 
 сохраняем, перегружаемся. 
@@ -80,6 +91,6 @@ TIMER_BEFORE_PRINT
 [respond]
 ```
 
-P.S. на данный момент отменить таймер только жестким ребутом прошивки, не клиппера, так как макрос продолжает работу и последуеще дергание таймера не приводит к изменению времени. работаю над этим. 
+ 
 
 P.P.S если вы не можете отредактировать файл /Helper-Script/KAMP/Start_Print.cfg это от того что это у вас не папка а ссылка на папку.   вы можете отредактировать /usr/data/KAMP-for-K1-Series/Configuration/Start_Print.cfg или всю папку переписать в /usr/data/printer_data/config/Helper-Script/KAMP удалив ссылку на папку. 
