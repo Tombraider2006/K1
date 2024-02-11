@@ -96,5 +96,5 @@ WAIT_TIMER_START
 
 P.P.S если вы не можете отредактировать файл /Helper-Script/KAMP/Start_Print.cfg это от того что это у вас не папка а ссылка на папку.   вы можете отредактировать /usr/data/KAMP-for-K1-Series/Configuration/Start_Print.cfg или всю папку переписать в /usr/data/printer_data/config/Helper-Script/KAMP удалив ссылку на папку. 
 
-[**thank you very much for your assistance in writing the macro -  Guilouz**](https://github.com/Guilouz)
+[**thank a lot for assistance in writing the macro -  Guilouz**](https://github.com/Guilouz)
 
