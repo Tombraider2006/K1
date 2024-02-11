@@ -1,42 +1,44 @@
 
-я вот сижу удивляюсь. 2024 год.. а оказывается переменную времени в клиппере взять неоткуда..
+<h1>таймер отложенной печати</h1>
 
 
-это я к чему, предположим время вечер, просыпаться поутру лень, некогда, или, например, хочу чтоб принтер начал печатать в три ночи чтоб к утру  заменить филамент и к обеду распечатать, так вот, нет у него такой функции чтоб по будильнику печатать. можно конечно через HOME ASSITANT и прочие умные домики, но это вроде как не спортивно...
 
-в общем буду смотреть что получится.. ну если кто умный есть то вот вам с чего я начинаю.
+предположим время вечер, просыпаться поутру лень, некогда, или, например, хочу чтоб принтер начал печатать в три ночи чтоб к утру  заменить филамент и к обеду распечатать, так вот, нет у него такой функции чтоб по будильнику печатать. можно конечно через HOME ASSITANT и прочие умные домики, но это вроде как не спортивно...
 
-1. 
+итак приступаем:
+ 
+ **1.** заходим по ssh на принтер и вписываем 
 
 ```
-[gcode_macro timer_before_print]
+cd /usr/share/klipper/klippy/extras
+wget --no-check-certificate https://raw.githubusercontent.com/Tombraider2006/K1/main/virtual_pins.py
+
+```
+
+ **2.** далее открываем  `printer.cfg`  например через вебпанель и вписываем в любое свободное место: 
+
+```
+[virtual_pins]
+[output_pin timer]
+pin: virtual_pin:timer_pin
+pwm: True
+value: 0
+scale: 1440
+shutdown_value: 0
+
+[gcode_macro TIMER_BEFORE_PRINT]
 description: delayed printing in minutes
 gcode:
-    {% set WAIT = params.WAIT|default(1)|int %}
-    {% for i in range(0, WAIT) %}
-        RESPOND MSG="Waiting... {WAIT-i} minutes remaining."
-        {% for s in range(0, 60) %}
-            SET_PIN PIN=LED VALUE=0.25
-            G4 P500
-            SET_PIN PIN=LED VALUE=0.5
-            G4 P500
-        {% endfor %}
-    {% endfor %}
-    SET_PIN PIN=LED VALUE=1
-```
-
-моргать от четверти светимости до половины светодиодом чтоб было понятно что не просто так стоит..  ничего умнее мне в голову не пришло..
-
-если вам не надо моргать так часто то можно сделать так:
-
-```
-[gcode_macro timer_before_print]
-description: delayed printing in minutes
-gcode:
-    {% set WAIT = params.WAIT|default(1)|int %}
-    {% for i in range(0, WAIT) %}
-        RESPOND MSG="Waiting... {WAIT-i} minutes remaining."
-        {% for s in range(0, 4) %}
+  {% if printer['output_pin timer'].value > 0 %}
+    {% set WAIT = printer['output_pin timer'].value * 1440|float %}
+    {% set WAIT_ROUNDED = WAIT|int %}
+    {% if WAIT - WAIT_ROUNDED >= 0.5 %}
+      {% set WAIT_ROUNDED = WAIT_ROUNDED + 1 %}
+    {% endif %}
+    RESPOND MSG="Waiting... {WAIT_ROUNDED} minutes remaining."
+        {% for i in range(0, WAIT_ROUNDED) %}
+          RESPOND MSG="Waiting... {WAIT_ROUNDED-i} minutes remaining."
+          {% for s in range(0, 4) %}
             SET_PIN PIN=LED VALUE=0.25
             G4 P14000
             SET_PIN PIN=LED VALUE=0.5
@@ -44,38 +46,31 @@ gcode:
         {% endfor %}
     {% endfor %}
     SET_PIN PIN=LED VALUE=1
-```
-
- так 14 секунд 0.25 светимости, потом 1 секунду 0.5 светимости..
-
- ну или третий вариант если вам не нужны спецэффекты 
-
- ```
- [gcode_macro timer_before_print]
-description: delayed printing in minutes
-gcode:
-    {% set WAIT = params.WAIT|default(1)|int %}
-    {% for i in range(0, WAIT) %}
-        RESPOND MSG="Waiting... {WAIT-i} minutes remaining."
-        {% for s in range(0, 60) %}
-            G4 P1000
-        {% endfor %}
-    {% endfor %}
-```
-
-выбираем один из моих  вариантов  который вам больше нравится или делаем свой и  вписываем в файл `gcode_macro.cfg`
-
-2. в слайсере в настройках принтера ищем стартовый g-code и исправляем примерно так :
-
-![](sliser.jpg)
+  {% else %}
+    RESPOND MSG="Wait Time not enabled!"
+  {% endif %}
 
 ```
-timer_before_print WAIT=180
-M400 
+сохраняем без перезагрузки
+
+**3.**  в папке /Helper-Script/KAMP ищем файл `Start_Print.cfg`
+   и сразу после строки `gcode:` нажимаем Enter и вписываем:
 ```
-180 в данном случае это 180 минут, тоесть принтер задумается на три часа перед печатью. 
+TIMER_BEFORE_PRINT
+```
+
+получится как то так как то так:
+
+![](start_print.jpg)
 
 
+сохраняем, перегружаемся. 
+
+4. теперь в интерфейсе появился новый элемент:
+
+![](element_timer.jpg)
+
+Теперь если перед печатью ввести в окошко значения количество минут (вплоть до 1440 что равно 24 часам) то печать стартует только после этого времени.  все это время принтер будет иногда вам помаргивать светом подсветки раз в 14 секунд.  
 
 если при запуске появилась вот такая ошибка
 ![](warn.jpg)
@@ -84,3 +79,5 @@ M400
 ```
 [respond]
 ```
+
+P.S. на данный момент отменить таймер только жестким ребутом прошивки, не клиппера, так как макрос продолжает работу и последуеще дергание таймера не приводит к изменению времени. работаю над этим. 
