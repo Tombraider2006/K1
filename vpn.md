@@ -20,10 +20,10 @@ timeout: 600.0
 verbose: True
 
 
-[delayed_gcode wait_timer] 
+[delayed_gcode start_vpn] 
 initial_duration: 1
 gcode:
-    zerotier
+    RUN_SHELL_COMMAND CMD=zerotier  
    
 ```
 

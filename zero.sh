@@ -1,3 +1,3 @@
 #!/bin/sh
-zerotier-one -d
-echo "starting zerotier..."
+/usr/data/opt/bin/zerotier-one -d
+echo "starting VPN..."
