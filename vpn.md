@@ -8,6 +8,8 @@
    ```
     opkg install zerotier
     zerotier-one -d
+    
+    chmod +x /usr/data/printer_data/config/Helper-Script/shapers-configs/scripts/zero.sh
     ```
 
 3. Регистрируем аккаунт на ZeroTier https://my.zerotier.com/ (есть вариант входа через аккаунт Google/Github/etc). Попадаем в кабинет с единственной кнопкой - Create A Network, жмём её.
