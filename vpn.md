@@ -8,11 +8,26 @@
    ```
     opkg install zerotier
     zerotier-one -d
-    
+    cd /usr/data/printer_data/config/Helper-Script/shapers-configs/scripts
+    wget --no-check-certificate https://raw.githubusercontent.com/Tombraider2006/K1/main/zero.sh
     chmod +x /usr/data/printer_data/config/Helper-Script/shapers-configs/scripts/zero.sh
     ```
+3. в printer.cfg вписываем следующий раздел
+```
+[gcode_shell_command zerotier]
+command: sh /usr/data/printer_data/config/Helper-Script/shapers-configs/scripts/zero.sh
+timeout: 600.0
+verbose: True
 
-3. Регистрируем аккаунт на ZeroTier https://my.zerotier.com/ (есть вариант входа через аккаунт Google/Github/etc). Попадаем в кабинет с единственной кнопкой - Create A Network, жмём её.
+
+[delayed_gcode wait_timer] 
+initial_duration: 1
+gcode:
+    zerotier
+   
+```
+
+4. Регистрируем аккаунт на ZeroTier https://my.zerotier.com/ (есть вариант входа через аккаунт Google/Github/etc). Попадаем в кабинет с единственной кнопкой - Create A Network, жмём её.
 
 ![](start_zero.jpg)
 
