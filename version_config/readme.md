@@ -1,6 +1,6 @@
  
 
-<h3 align="right"><a href="https://pay.cloudtips.ru/p/f84bf0b2" target="_blank">ваше "спасибо" автору</a></h3>
+<h3 align="right"><a href="https://www.tinkoff.ru/rm/yakovleva.irina203/51ZSr71845" target="_blank">ваше "спасибо" автору</a></h3>
 
 
   <h1>Инструкция к прошивке 1.3.3.5!</h1>
