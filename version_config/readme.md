@@ -3,11 +3,11 @@
 <h3 align="right"><a href="https://www.tinkoff.ru/rm/yakovleva.irina203/51ZSr71845" target="_blank">ваше "спасибо" автору</a></h3>
 
 
-  <h1>Инструкция к прошивке 1.3.3.5!</h1>
+  <h1>Инструкция к прошивке 1.3.3.8</h1>
  
  
  
- вот  [**конфиги посмотреть**](/version_config/1_3_3_5/) 
+ вот  [**конфиги посмотреть**](/version_config/1_3_3_8/) 
  
   отлаженные с макросами для к1✋. как пользоваться; на скрине указано какие компоненты из скрипта [**гладиолуса**](https://github.com/Guilouz/Creality-K1-and-K1-Max/wiki/Installation-Helper-Script) установлены.
  
