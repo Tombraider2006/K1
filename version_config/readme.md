@@ -54,7 +54,8 @@
 на картинке указано как выглядит окошко куда надо вставлять стартовый и конечный код для корректной работы тестов.
 
 ```
-SET_PIN PIN=KAMP VALUE=0
+_FULL_BED_MESH_ON
+_ADAPTIVE_PURGE_LINE_OFF
 START_PRINT EXTRUDER_TEMP=$HOTTEMP BED_TEMP=$BEDTEMP
 
 ```
@@ -62,7 +63,6 @@ START_PRINT EXTRUDER_TEMP=$HOTTEMP BED_TEMP=$BEDTEMP
 
 ```
 END_PRINT
-SET_PIN PIN=KAMP VALUE=1
 ```
 конечный код
 
