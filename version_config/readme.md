@@ -95,5 +95,8 @@ opkg install wget-ssl
 ```
 opkg install openssh-sftp-server; ln -s /opt/libexec/sftp-server /usr/libexec/sftp-server
 ```
+**чтобы после каждой печати  вас не раздражала надпись "сохранить настройки и перегрузить"**
 
+ можно выполнить три простых пункта. зайти в настройки перейти в общие и добавить исключения. `bed_mesh adaptive` и `bed_mesh default`
 
+![](unsave.jpg)
