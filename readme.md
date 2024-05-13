@@ -8,13 +8,10 @@
 [**Атуальная версия прошивки с инструкциями по установке**](/version_config/readme.md)
 
 
-[**Делаем отложенную печать. Таймер**](timer.md)
-
+[**управляем ретрактом во время печати**](fw_retract.md)
 
 [**ветка бутлоадера от CREALITY**](https://github.com/CrealityOfficial/K1_Series_Annex/releases/tag/V1.0.0)
 
-[**Макрос смены филамента**](/filament/readme.md)
-![](filament/1.jpg)
 
 **Если видим такую картину при тесте стола**
 
