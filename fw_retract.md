@@ -15,17 +15,12 @@
 в "дополнительно" вписываем:
 
 ```
-SET_RETRACTION RETRACT_LENGTH=[filament_retraction_length] RETRACT_SPEED=[filament_retraction_speed] UNRETRACT_EXTRA_LENGTH=[filament_retract_restart extra] UNRETRACT_SPEED=[filament_deretraction_speed]
+SET_RETRACTION RETRACT_LENGTH=[filament_retraction_length] RETRACT_SPEED=[filament_retraction_speed] UNRETRACT_EXTRA_LENGTH=[filament_retract_restart_extra] UNRETRACT_SPEED=[filament_deretraction_speed]
 ```
 должно получиться как то так:
 
 ![](orca3.jpg)
 
-если орка ругается на слишком длинную строку в пользовательском коде придется расстаться с одним из параметров например дополнительная длина ретракта. тогда код будет такой:
-
-```
-SET_RETRACTION RETRACT_LENGTH=[filament_retraction_length] RETRACT_SPEED=[filament_retraction_speed]  UNRETRACT_SPEED=[filament_deretraction_speed]
-```
 
 
 далее переходим в принтер и открываем файл printer.cfg

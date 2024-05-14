@@ -40,5 +40,46 @@
 ![](/ferma/color2.jpg)
 
 
+**4 Настрока звуковых сигналов на к1\К1Макс(в к1с нет бипера)**
 
+Если вы при установке через хелпер скрипт установили `buzzer support`  то вам доступны следующие сценарии: 
+
+1. звуковая сигнализация при окончании филамента. Для этого достаточно зайти в `printer.cfg` найти раздел `[filament_switch_sensor filament_sensor]`
+и в конце раздела написать `beep` как на скриншоте ниже. или просто заменить раздел на это:
+
+```
+[filament_switch_sensor filament_sensor]
+pause_on_runout: true
+switch_pin: !PC15
+runout_gcode:
+  {% if printer.extruder.can_extrude|lower == 'true' %}
+    G91
+    G0 E30 F600
+    G90
+  {% endif %}
+  beep
+  beep
+```
+
+![](/ferma/screen1.jpg)
+
+2. звуковая сигнализация при окончании печати. Идем в файл `gcode_macro.cfg`  и находим макрос `END_PRINT` меняя его следующим образом:
+
+```
+[gcode_macro END_PRINT]
+gcode:
+  Qmode_exit
+  EXCLUDE_OBJECT_RESET
+  PRINT_PREPARE_CLEAR
+  M220 S100
+  SET_VELOCITY_LIMIT ACCEL=5000 ACCEL_TO_DECEL=2500
+  TURN_OFF_HEATERS
+  M107 P1
+  M107 P2
+  END_PRINT_POINT
+  beep
+  WAIT_TEMP_START
+  M84
+```
+если необходимо  подавать сигнал подольше, просто добавляем количество beep в макрос.
 
