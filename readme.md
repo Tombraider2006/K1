@@ -1,5 +1,7 @@
 <h3 align="right"><a href="https://www.tinkoff.ru/rm/yakovleva.irina203/51ZSr71845" target="_blank">ваше "спасибо" автору</a></h3>
 
+[**Обучение в режиме онлайн консультации**](kurs.md)
+
 
 [**CREALITY K1 FAQ перед первым включением.**](before_use.md)
 
@@ -11,6 +13,8 @@
 [**управляем ретрактом во время печати**](fw_retract.md)
 
 [**ветка бутлоадера от CREALITY**](https://github.com/CrealityOfficial/K1_Series_Annex/releases/tag/V1.0.0)
+
+
 
 
 **Если видим такую картину при тесте стола**
@@ -44,11 +48,3 @@ https://github.com/Tombraider2006/K1/assets/59514540/69f707a5-c68c-4741-a73e-282
 [**Видеогайд по установке модуля таймлапс. УСТАРЕЛО!!!**](https://youtu.be/Bpfy8Osb2o0)
 
 [**правильное время в принтере (неактуально)**](/date/readme.md)
-
-**Версии конфигов в прошивках** для ознакомления.
-
-[**1.2.9.15**](/version_config/1_2_9_15/)
-    
-[**1.3.14**](/version_config/1.3.14/)
-
-[**1.3.28**](/version_config/1_3_28/)
