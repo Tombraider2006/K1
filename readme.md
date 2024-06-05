@@ -6,7 +6,6 @@
 [**CREALITY K1 FAQ перед первым включением.**](before_use.md)
 
 
-
 [**Атуальная версия прошивки с инструкциями по установке**](/version_config/readme.md)
 
 [**полезные макросы**](/macros_helpfull/readme.md)
