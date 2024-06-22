@@ -6,21 +6,14 @@
 
 ![](orca1.jpg)
 
-далее идем в свойства прутка и явно! указываем цифры отката его скорости извлечения и возврата 
+далее в стартовом коде принтера добавляем блок:
 
-и так для каждого! вида пластика. Иначе работать будет, но значения в начале печати возьмутся из принтер конфига
-
+```
+SET_RETRACTION RETRACT_LENGTH=[retraction_length] RETRACT_SPEED=[retraction_speed] UNRETRACT_EXTRA_LENGTH=[retract_restart_extra] UNRETRACT_SPEED=[deretraction_speed]
+RESPOND TYPE=command MSG="Retraction length set to [retraction_length]mm" 
+RESPOND TYPE=command MSG="Retract speed set to [retraction_speed]/[deretraction_speed]mm/c"
+```
 ![](orca2.jpg)
-
-в "дополнительно" вписываем:
-
-```
-SET_RETRACTION RETRACT_LENGTH=[filament_retraction_length] RETRACT_SPEED=[filament_retraction_speed] UNRETRACT_EXTRA_LENGTH=[filament_retract_restart_extra] UNRETRACT_SPEED=[filament_deretraction_speed]
-```
-должно получиться как то так:
-
-![](orca3.jpg)
-
 
 
 далее переходим в принтер и открываем файл printer.cfg
