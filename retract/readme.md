@@ -16,6 +16,13 @@ RESPOND TYPE=command MSG="Retract speed set to [retraction_speed]/[deretraction_
 ![](orca2.jpg)
 
 
+не забывайте вписывать значение отката для своего пластика когда настраиваете.
+
+например так:
+
+![](orca3.jpg)
+
+
 далее переходим в принтер и открываем файл printer.cfg
 
 вписываем такой раздел:
