@@ -22,7 +22,7 @@
 ![](raizerKMAX.jpg)
 
 
-[**модель держалки реpинки прочистки для K1C**](https://t.me/crealityK1rus/16778/217607)
+[**модель держалки резинки прочистки для K1C**](https://t.me/crealityK1rus/16778/217607)
 
 
 ![](rezin.jpg)
