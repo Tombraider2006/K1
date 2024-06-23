@@ -1,20 +1,33 @@
 
 **Дополнительные материалы к лекциям.**
 
-**Для КМАКС:**
+
 
 1. прокладка под экран которая уменьшает приток холодного воздуха в камеру принтера. 
 
-[**скачать модель тут**](https://www.printables.com/model/553930-creality-k1-max-door-cover)
+[**скачать модель тут для K1MAX**](https://www.printables.com/model/553930-creality-k1-max-door-cover)
+
+[**скачать модель тут для K1\K1C**](https://t.me/crealityK1rus/16778/293569)
 
 ![](prokladka.jpg)
 
+
+
 2. Проставка для улучшения вентиляции. Устанавливается между корпусом и крышкой.
 
+[**скачать модель тут для K1\K1C**](https://www.printables.com/model/525295-jc-creality-k1-hinged-lid-riser)
 
-[**скачать модель тут**](raizerKMAX.zip)
+[**скачать модель тут для K1MAX**](https://t.me/crealityK1rus/16778/109114)
 
 ![](raizerKMAX.jpg)
+
+
+[**модель держалки реpинки прочистки для K1C**](https://t.me/crealityK1rus/16778/217607)
+
+
+![](rezin.jpg)
+
+
 
 [**скачать обычный тестовый кубик**](Cube.stl)
 ![](cube.jpg)
@@ -24,7 +37,7 @@
 
 [**текстовый мануал**](https://github.com/Tombraider2006/K1/blob/main/before_use.md)
 
-[**видеопояснение**](tablemoving.mp4)
+[**видеопояснение**](https://t.me/crealityK1rus/16778/130457)
 
 **Что такое шейперы и с чем их едят:**
 
@@ -34,7 +47,7 @@
 
 [**Большой заумный материал на английском**](https://github.com/Frix-x/klippain-shaketune/blob/main/docs/macros/axes_shaper_calibrations.md)
 
-[**как понять по графику надо ли лезть в механику принтера creality K1\K1c|Kmax**](https://github.com/Tombraider2006/K1/tree/main/shaper)
+[**как понять по графику надо ли лезть в механику принтера creality K1\K1c\K1max**](https://github.com/Tombraider2006/K1/tree/main/shaper)
 
 
 
