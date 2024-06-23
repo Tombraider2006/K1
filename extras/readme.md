@@ -54,6 +54,15 @@
 
 [**Разное полезное про прошивку и тесты**](https://github.com/Tombraider2006/K1/tree/main/version_config)
 
+**порядок калибровки пластика**
+1. поток
+2. [Linear Advance](https://k3d.tech/calibrations/la/calibrator/)
+3. [Тест откатов](https://k3d.tech/calibrations/retractions/calibrator/)
+4. Температура
+5. Максимальная объемная скорость.
+
+в тестах соркина не забываем поставить [правильные](/version_config/readme.md) начальные и конечные джикоды.
+
 **Что посмотреть на ютубчике**
 
 [**Почему OrcaSlicer**](https://youtu.be/0TzEFStKH90?si=3XKylqedC36pHxEK)
