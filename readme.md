@@ -20,6 +20,13 @@
 [**ветка бутлоадера от CREALITY**](https://github.com/CrealityOfficial/K1_Series_Annex/releases/tag/V1.0.0)
 
 
+**как быстро определить какое сопло(unicorn\vulcano) на вашем принтере**
+
+если видно отверстие на радиаторе хотенда и болтик под шестигранник значит у вас vulcano, если радиатор без отверстий значит unicorn.
+
+![](vulcano.jpg)
+
+![](unicorn.jpg)
 
 
 
