@@ -3,15 +3,15 @@
 <h3 align="right"><a href="https://www.tinkoff.ru/rm/yakovleva.irina203/51ZSr71845" target="_blank">ваше "спасибо" автору</a></h3>
 
 
-  <h1>Инструкция к прошивке 1.3.3.8</h1>
+  <h1>Инструкция к прошивке 1.3.3.29</h1>
  
  
  
- вот  [**конфиги посмотреть**](/version_config/1_3_3_8/) 
+ вот  [**конфиги посмотреть**](/version_config/1_3_3_29/) 
  
   отлаженные с макросами для к1✋. как пользоваться; на скрине указано какие компоненты из скрипта [**гладиолуса**](https://github.com/Guilouz/Creality-K1-and-K1-Max/wiki/Installation-Helper-Script) установлены.
  
-  *это конфиг для стокового к1 без замены шкивов. (в printer.cfg указаны строки где и что менять в 4 местах при замене на 20-зубые шкивы)*
+  *это конфиг для стокового к1 с заменой шкивов и моторов. (в printer.cfg указаны строки где и что менять в 4 местах при замене на 20-зубые шкивы)*
  
   1. **рекомендую** если у вас были ранее установлены скрипты перед установкой сбросить прошивку до заводских настроек для исключения накладок.
 
@@ -62,11 +62,14 @@ START_PRINT EXTRUDER_TEMP=$HOTTEMP BED_TEMP=$BEDTEMP
 стартовый код
 
 ```
+_ADAPTIVE_BED_MESH_ON
+_ADAPTIVE_PURGE_LINE_ON
 END_PRINT
+
 ```
 конечный код
 
-пройти тесты можно тут https://k3d.tech/calibrations/
+пройти тесты можно [**ТУТ**](https://k3d.tech/calibrations/)
 
 <h2>что вы получите?</h2>
 
@@ -91,12 +94,16 @@ opkg install wget-ssl
 
 мой выбор программы доступа для винды это: [**Bitvise SSH Client**](https://www.bitvise.com/ssh-client-download)
 
- чтобы доступ к файловой системе работал по sftp поэтому установлен enterware и необходимо в консоли ssh добавить компонент 
-```
-opkg install openssh-sftp-server; ln -s /opt/libexec/sftp-server /usr/libexec/sftp-server
-```
 **чтобы после каждой печати  вас не раздражала надпись "сохранить настройки и перегрузить"**
 
  можно выполнить три простых пункта. зайти в настройки перейти в общие и добавить исключения. `bed_mesh adaptive` и `bed_mesh default`
 
 ![](unsave.jpg)
+
+**устарело**
+*
+ чтобы доступ к файловой системе работал по sftp поэтому установлен enterware и необходимо в консоли ssh добавить компонент 
+```
+opkg install openssh-sftp-server; ln -s /opt/libexec/sftp-server /usr/libexec/sftp-server
+```
+* 
