@@ -1,3 +1,4 @@
+<h3 align="right"><a href="https://www.tinkoff.ru/rm/yakovleva.irina203/51ZSr71845" target="_blank">ваше "спасибо" автору</a></h3>
 
 **Подключение raspbery pico к принтеру**
 
@@ -101,3 +102,5 @@ initial_GREEN: 0.5
 Вообще с пинами можно делать много чего например включать и выключать (подробно можно почитать в [klipper referense](https://github.com/Klipper3d/klipper/blob/master/docs/Config_Reference.md#output_pin)), снимать с них данные. 
 
 Вид данных по типу смотрите по картинке подсказке выше. если вы пытаетесь подключить датчик i2s не стоит его пихать в обычный gpio тоже самое с данными spi.   
+
+
