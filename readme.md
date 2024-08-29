@@ -9,15 +9,17 @@
 
 [**Актуальная версия прошивки с инструкциями по установке**](/version_config/readme.md)
 
-[**полезные макросы**](/macros_helpfull/readme.md)
+[**Полезные макросы**](/macros_helpfull/readme.md)
 
-[**управляем ретрактом во время печати**](/retract/readme.md)
+[**Управляем ретрактом во время печати**](/retract/readme.md)
 
-[**читаем графики шейперов**](/shaper/readme.md)
+[**Читаем графики шейперов**](/shaper/readme.md)
 
-[**еще несколько советов по принтеру**](/ferma/readme.md)
+[**Еще несколько советов по принтеру**](/ferma/readme.md)
 
-[**ветка бутлоадера от CREALITY**](https://github.com/CrealityOfficial/K1_Series_Annex/releases/tag/V1.0.0)
+Далее  пункты "ОчУмелые Ручки"
+
+[**Подключение Raspberry Pico для расширения количества pin для ваших самоделок и дополнений**](/usb/readme.md)
 
 [**если очень хочется сделать из принтера новогоднюю ёлку. руководство по установке WLED**](https://github.com/Gliptopolis/WLED_Klipper)
 
@@ -32,5 +34,6 @@
 ![](unicorn.jpg)
 
 
+[**Ветка бутлоадера от CREALITY**](https://github.com/CrealityOfficial/K1_Series_Annex/releases/tag/V1.0.0)
 
 
