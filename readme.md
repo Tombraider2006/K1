@@ -19,6 +19,9 @@
 
 [**ветка бутлоадера от CREALITY**](https://github.com/CrealityOfficial/K1_Series_Annex/releases/tag/V1.0.0)
 
+[**если очень хочется сделать из принтера новогоднюю ёлку. руководство по установке WLED**](https://github.com/Gliptopolis/WLED_Klipper)
+
+[**выбор самурая - переход на клиппер без креалити**](https://github.com/pellcorp/creality/wiki/K1-Stock-Mainboard-Less-Creality)
 
 **как быстро определить какое сопло(unicorn\volcano) на вашем принтере**
 
