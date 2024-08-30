@@ -101,7 +101,7 @@ serial: /dev/serial/by-id/usb-Klipper_rp2040_E660B4404B3EAB35-if00
 pico:gpio1
 ```
 
-<h1>SFS</h1>
+<h1>FWS</h1>
 
 Например - конфиг для датчика толщины филамента будет выглядеть так:
 
