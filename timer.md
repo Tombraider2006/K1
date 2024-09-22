@@ -7,7 +7,7 @@
 
 итак приступаем:
  
- **1.** заходим по ssh на принтер и вписываем 
+ **1.** заходим по ssh на принтер и вписываем (если ставили хелпер скрипт и пункт 6 в нем то это можно пропустить, я уже инициировал добавку виртуал пинов в хелпер скрипте)
 
 ```
 cd /usr/share/klipper/klippy/extras
@@ -18,7 +18,7 @@ wget --no-check-certificate https://raw.githubusercontent.com/Tombraider2006/K1/
  **2.** далее открываем  `printer.cfg`  например через вебпанель и вписываем в любое свободное место: 
 
 ```
-[virtual_pins]
+[virtual_pins] # если хелпер скрипт установлен то эту строку стоит закоментировать
 [output_pin timer]
 pin: virtual_pin:timer_pin
 pwm: True
