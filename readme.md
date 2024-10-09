@@ -30,6 +30,8 @@
 
 [**Описание custom_macro.py**](custom_macro.md)
 
+[**Распиновка плат принтера**](https://docs.google.com/presentation/d/1f6kJbMq7uSggC33zmIfcTPdG6r50PbbDut14u9vAcZA/edit#slide=id.g2c17ef9f2a4_0_0)
+
 [**выбор самурая - переход на клиппер без креалити**](https://github.com/pellcorp/creality/wiki/K1-Stock-Mainboard-Less-Creality)
 
 [**таймер отложенной печати**](timer.md)
