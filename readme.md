@@ -20,11 +20,17 @@
 
 [**Еще несколько советов по принтеру**](/ferma/readme.md)
 
+[**таймер отложенной печати**](timer.md)
+
+[**Пропуск самопроверки после сброса до заводских настроек**](reset.md)
+
 Далее  пункты "ОчУмелые Ручки"
 
 [**Установка сетевого разъема RJ45 на К1\K1C**](ethernet.md)
 
 [**Подключение Raspberry Pico для расширения количества pin для ваших самоделок и дополнений**](/usb/readme.md)
+
+[**Датчик филамента sfs 2.0 для k1c**](/sfs/readme.md)
 
 [**если очень хочется сделать из принтера новогоднюю ёлку. руководство по установке WLED**](https://github.com/Gliptopolis/WLED_Klipper)
 
@@ -34,7 +40,9 @@
 
 [**выбор самурая - переход на клиппер без креалити**](https://github.com/pellcorp/creality/wiki/K1-Stock-Mainboard-Less-Creality)
 
-[**таймер отложенной печати**](timer.md)
+[**Cartographer 3D. Если переходить на чистый клиппер придется уходить с родного модуля тензодатчиков.**](https://docs.cartographer3d.com/cartographer-probe/installation-and-setup/creality-k1-and-k1-max-specific)
+
+
 
 **как быстро определить какое сопло(unicorn\volcano) на вашем принтере**
 
