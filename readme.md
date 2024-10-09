@@ -28,6 +28,8 @@
 
 [**если очень хочется сделать из принтера новогоднюю ёлку. руководство по установке WLED**](https://github.com/Gliptopolis/WLED_Klipper)
 
+[**Описание custom_macro.py**](custom_macro.md)
+
 [**выбор самурая - переход на клиппер без креалити**](https://github.com/pellcorp/creality/wiki/K1-Stock-Mainboard-Less-Creality)
 
 [**таймер отложенной печати**](timer.md)
