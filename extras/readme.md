@@ -35,7 +35,7 @@
 
 **Методы устранения перекоса стола**
 
-[**текстовый мануал**](https://github.com/Tombraider2006/K1/blob/main/before_use.md)
+[**текстовый мануал**](/random/before_use.md)
 
 [**видеопояснение**](https://t.me/crealityK1rus/16778/130457)
 
@@ -47,7 +47,7 @@
 
 [**Большой заумный материал на английском**](https://github.com/Frix-x/klippain-shaketune/blob/main/docs/macros/axes_shaper_calibrations.md)
 
-[**как понять по графику надо ли лезть в механику принтера creality K1\K1c\K1max**](https://github.com/Tombraider2006/K1/tree/main/shaper)
+[**как понять по графику надо ли лезть в механику принтера creality K1\K1c\K1max**](/shaper/readme.md)
 
 
 
