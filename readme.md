@@ -4,7 +4,7 @@
 
 [**дополнительные материалы к лекциям**](/extras/readme.md)
 
-[**CREALITY K1 FAQ перед первым включением.**](before_use.md)
+[**CREALITY K1 FAQ перед первым включением.**](/random/before_use.md)
 
 [**Родные коды ошибок креалити**](https://store.creality.com/blog/creality-k1-fault-codes-list) по мне бесполезная шляпа, гораздо правильнее читать сообщения от клиппера в вебпанели. но если очень хочется можно и почитать. 
 
@@ -20,13 +20,13 @@
 
 [**Еще несколько советов по принтеру**](/ferma/readme.md)
 
-[**таймер отложенной печати**](timer.md)
+[**таймер отложенной печати**](/random/timer.md)
 
-[**Пропуск самопроверки после сброса до заводских настроек**](reset.md)
+[**Пропуск самопроверки после сброса до заводских настроек**](/random/reset.md)
 
 Далее  пункты "ОчУмелые Ручки"
 
-[**Установка сетевого разъема RJ45 на К1\K1C**](ethernet.md)
+[**Установка сетевого разъема RJ45 на К1\K1C**](/random/ethernet.md)
 
 [**Подключение Raspberry Pico для расширения количества pin для ваших самоделок и дополнений**](/usb/readme.md)
 
@@ -34,7 +34,7 @@
 
 [**если очень хочется сделать из принтера новогоднюю ёлку. руководство по установке WLED**](https://github.com/Gliptopolis/WLED_Klipper)
 
-[**Описание custom_macro.py**](custom_macro.md)
+[**Описание custom_macro.py**](/random/custom_macro.md)
 
 [**Распиновка плат принтера**](https://docs.google.com/presentation/d/1f6kJbMq7uSggC33zmIfcTPdG6r50PbbDut14u9vAcZA/edit#slide=id.g2c17ef9f2a4_0_0)
 
@@ -48,9 +48,9 @@
 
 если видно отверстие на радиаторе хотенда и болтик под шестигранник значит у вас vulcano, если радиатор без отверстий значит unicorn.
 
-![](vulcano.jpg)
+![](/random/vulcano.jpg)
 
-![](unicorn.jpg)
+![](/random/unicorn.jpg)
 
 
 [**Ветка бутлоадера от CREALITY**](https://github.com/CrealityOfficial/K1_Series_Annex/releases/tag/V1.0.0)
