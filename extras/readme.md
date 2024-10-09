@@ -61,7 +61,25 @@
 4. Температура
 5. Максимальная объемная скорость.
 
-в тестах соркина не забываем поставить [правильные](/version_config/readme.md) начальные и конечные джикоды.
+в тестах соркина не забываем поставить правильные начальные и конечные джикоды.
+
+**стартовый код**
+
+```
+_FULL_BED_MESH_ON
+_ADAPTIVE_PURGE_LINE_OFF
+START_PRINT EXTRUDER_TEMP=$HOTTEMP BED_TEMP=$BEDTEMP
+
+```
+**конечный код**
+
+```
+_FULL_BED_MESH_OFF
+_ADAPTIVE_PURGE_LINE_ON
+END_PRINT
+
+```
+
 
 **Что посмотреть на ютубчике**
 
@@ -103,6 +121,7 @@
 
  *PLA* - [Erione](https://www.ozon.ru/category/plastik-dlya-3d-printera-15794/eryone-100430904/) 
 
+**Немного про adaptive PA**
 
 Разработчики орки наконец-то заметили эту проблему, которая была кажется у всех
 
