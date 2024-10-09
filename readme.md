@@ -10,6 +10,8 @@
 
 [**Что купить чтобы принтер вас любил**](/what_2_buy/readme.md)
 
+[**Замена сопла Unicorn на Volcano в Creality K1\k1c\k1max**](https://3dtoday.ru/blogs/dimix200612/zamena-sopla-unicorn-na-volcano-v-creality-k1)
+
 [**Актуальная версия прошивки с инструкциями по установке**](/version_config/readme.md)
 
 [**Полезные макросы**](/macros_helpfull/readme.md)
