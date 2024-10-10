@@ -56,7 +56,7 @@
 
 [**Cartographer 3D. Если переходить на чистый клиппер придется уходить с родного модуля тензодатчиков.**](https://docs.cartographer3d.com/cartographer-probe/installation-and-setup/creality-k1-and-k1-max-specific)
 
-
+[**Установка Creality K1 BTT Eddy**](https://ballaswag.github.io/blog/creality-k1-btt-eddy-guide/) исключительно для коллекции.
 
 **как быстро определить какое сопло(unicorn\volcano) на вашем принтере**
 
