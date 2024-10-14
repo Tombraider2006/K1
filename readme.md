@@ -56,7 +56,9 @@
 
 [**Cartographer 3D. Если переходить на чистый клиппер придется уходить с родного модуля тензодатчиков.**](https://docs.cartographer3d.com/cartographer-probe/installation-and-setup/creality-k1-and-k1-max-specific)
 
-[**Установка Creality K1 BTT Eddy**](https://ballaswag.github.io/blog/creality-k1-btt-eddy-guide/) исключительно для коллекции.
+[**Установка Creality K1 BTT Eddy**](https://ballaswag.github.io/blog/creality-k1-btt-eddy-guide/) буду ставить себе.. потом распишу подробнее.
+
+[**обновленный тензомод**](https://github.com/Sekilsgs2/creality_pellcorp) где автоматизированный скрипт сам все поставит , очистит от хлама creality и поставит последний klipper  и можно юзать. Не как в tenso_mod - поставил и пол дня настраивай переделывай чтобы вообще хоть что то работало
 
 **как быстро определить какое сопло(unicorn\volcano) на вашем принтере**
 
