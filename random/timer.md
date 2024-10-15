@@ -100,3 +100,4 @@ P.P.S если вы не можете отредактировать файл /H
 
 [**thank a lot for assistance in writing the macro -  Guilouz**](https://github.com/Guilouz)
 
+<h5 align="right">поставьте "звездочку" проекту. так другим пользователям легче его найти.</h5>
