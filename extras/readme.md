@@ -94,6 +94,7 @@ END_PRINT
 
 [**Все о филаментах**](https://www.youtube.com/watch?v=CzgOCkJbcxE)
 
+[**Калибровка точности по Соркину**](https://youtu.be/6seFEWIGTtU?si=9I6r6bh5QEWTt1Us)
 
 **по поводу влажности пластика и как ее определить**
 
