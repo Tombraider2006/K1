@@ -60,7 +60,7 @@ START_PRINT EXTRUDER_TEMP=$HOTTEMP BED_TEMP=$BEDTEMP
 стартовый код
 
 ```
-_FULL_BED_MESH_OFF
+SET_PIN PIN=FULL_BED_MESH VALUE=0
 _ADAPTIVE_PURGE_LINE_ON
 END_PRINT
 
@@ -125,5 +125,36 @@ opkg install wget-ssl
 
 на данный момент проект приостановлен и врядли будет обновлятся далее. 
 
+
+<h4>Guppy Screen update</h4>
+
+Исправленная версия GuppyScreen:
+
+1. Пересобраны шрифты, используется NotoSans-Medium, включено subpx-сглаживание, поддерживается кириллица.
+2. Изменены значения экструда на экране Extrude, выставлены более удобные в реальной жизни значения.
+3. Поправлено обрезание статуса файла нижними кнопками на панели Print.
+4. Поправлен выпадающий список Display sleep в настройках Guppy.
+5. В сборку попало исправление остатка прутка в Spoolman, а так же должны работать usb-флешки.
+
+Установка скриптом из helper-script:
+
+1. Открыть скрипт на редактирование `/usr/data/helper-script/files/guppy-screen/guppy-update.sh`
+Найти строку `"$CURL" -s https://api.github.com/repos/ballaswag/guppyscreen/releases -o /tmp/guppy-releases.json` и исправить слово `ballaswag` на `neonman63`
+2. Запустить скрипт `sh /usr/data/helper-script/files/guppy-screen/guppy-update.sh`
+
+Установка обновления вручную:
+
+1. Закинуть архив любым способом в каталог /usr/data, например:
+```
+wget 'https://github.com/neonman63/guppyscreen/releases/download/nightly/guppyscreen.tar.gz' -O /usr/data/guppyscreen.tar.gz
+или
+scp guppyscreen.tar.gz root@ip-printer:/usr/data/
+tar -xvf /usr/data/guppyscreen.tar.gz -C /usr/data/guppyscreen/..
+/etc/init.d/S99guppyscreen stop
+killall -q guppyscreen
+/etc/init.d/S99guppyscreen restart
+rm -f /usr/data/guppyscreen.tar.gz
+```
+Enjoy!
 
 <h5 align="right">поставьте "звездочку" проекту. так другим пользователям легче его найти.</h5>
