@@ -53,7 +53,7 @@
 [**как понять по графику надо ли лезть в механику принтера creality K1\K1c\K1max**](/shaper/readme.md)
 
 
-
+[**Регулировка натяжения ремней опираясь на графики**](/random/belts/readme.md)
 
 [**Разное полезное про прошивку и тесты**](https://github.com/Tombraider2006/K1/tree/main/version_config)
 
