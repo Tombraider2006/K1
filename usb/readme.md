@@ -147,6 +147,37 @@ initial_GREEN: 0.5
 
 Я сразу поясню разницу. неопиксель через rpi дает возможность управлять лентой из клиппера, но там же придется и писать все эффекты. вариант с прошивкой WLED esp32 дает возможность делать ссылки на сохраненные в прошивке esp эффекты. если  смотреть на адресную ленту как на гирлянду, то предпочтительнее выглядит вариант esp32 если есть задумки использовать в конфиге ленту (например счетчик процентов печати в количестве светодиодов включенных) то rpi2040 выглядит интереснее.
 
+<h1>Beeper</h1>
+
+```
+[gcode_macro M300]
+gcode:
+    # Use a default 1kHz tone if S is omitted.
+    {% set S = params.S|default(1000)|int %}
+    # Use a 10ms duration is P is omitted.
+    {% set P = params.P|default(100)|int %}
+    {% if S > 0 %}
+      SET_PIN PIN=BEEPER VALUE=0.5 CYCLE_TIME={ 1.0/S }
+      G4 P{P}
+    {% else %}
+      G4 P{P}
+    {% endif %}
+      SET_PIN PIN=BEEPER VALUE=0
+```
+макрос для реакций на команду м300 конвертнуть миди файлы в gcode можно [**тут**](https://www.layerfused.com/MIDI-M300) 
+
+Не забываем поставить правильный пин куда воткнули наш *ПАССИВНЫЙ* бипер, иначе разницы в тонах не получим. 
+ 
+
+```
+[output_pin BEEPER]
+pin: pico:gpio8
+pwm: True
+value: 0
+shutdown_value: 0
+cycle_time: 0.001
+```
+
 
 Вообще с пинами можно делать много чего например включать и выключать (подробно можно почитать в [klipper referense](https://github.com/Klipper3d/klipper/blob/master/docs/Config_Reference.md#output_pin)), снимать с них данные, даже управлять сервоприводом.
 
