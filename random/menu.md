@@ -176,31 +176,29 @@ variable_flow_rate: 12                      # обьемный расход во
 
 </details>
 
-<details><summary>A dropdown list for markdown</summary>
+<details><summary>13 screws tilt adjust support </summary>
 
-   1. First item must be preceeded with an empty line.
-   1. Markdown renders **perfectly**.
-   1. Extra item.
-
-</details>
-
-<details><summary>A dropdown list for markdown</summary>
-
-   1. First item must be preceeded with an empty line.
-   1. Markdown renders **perfectly**.
-   1. Extra item.
+   Поддержка мода в котором под стол вместо винтов устанавливаются барашки для ручного исправления кривизны стола. ИМХО не нужен и даже вреден. в данном случа мы добавляем дополнительный подпружиненный элемент, который вносит дополнительный фактор нестабильности в и так не лучшим образом работающие тензодатчики. 
+   
+   *но если звезды зажигают, значит это кому то нужно*
 
 </details>
 
-<details><summary>A dropdown list for markdown</summary>
+<details><summary>14 M600</summary>
 
-   1. First item must be preceeded with an empty line.
-   1. Markdown renders **perfectly**.
-   1. Extra item.
+   Макрос смены филамента. Весьма спорное решение,  описание есть на сайте вики скрипта и мне к нему нечего добавить, несмотря на то что я в свое время инициировал обсуждение и предложил одну из первых его версий, сам лично я разочаровался в его использовании и не рекомендую этот пункт к использованию.
 
 </details>
 
-<details><summary>A dropdown list for markdown</summary>
+<details><summary>15 Git Backup</summary>
+   
+   Добавляет возможность бекапа своих конфигов на предварительно настроенный ваш гитхаб.
+
+   По мне бесполезная свистоперделка сделанная для того чтобы сделать. Не вижу ни одного вменяемого аргумента к использованию.
+
+</details>
+
+<details><summary>16 Moonraker Timelapse</summary>
 
    1. First item must be preceeded with an empty line.
    1. Markdown renders **perfectly**.
