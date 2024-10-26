@@ -55,7 +55,7 @@
 
 [**Регулировка натяжения ремней опираясь на графики**](/random/belts/readme.md)
 
-[**Разное полезное про прошивку и тесты**](https://github.com/Tombraider2006/K1/tree/main/version_config)
+[**Разное полезное про меню Helper Script**](/random/menu.md)
 
 **порядок калибровки пластика**
 1. поток
