@@ -1,3 +1,7 @@
+<h3 align="right"><a href="https://www.tinkoff.ru/rm/yakovleva.irina203/51ZSr71845" target="_blank">ваше "спасибо" автору</a></h3>
+<h3 align="right"><a href="https://t.me/tombraider2006" target="_blank">телеграм канал автора</a></h3>
+
+
 **CREALITY K1 FAQ перед первым включением.**
 
 1. Подтянуть болты по кругу под 
