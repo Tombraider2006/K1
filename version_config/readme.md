@@ -6,7 +6,7 @@
  
 1. **рекомендую** если у вас были ранее установлены скрипты перед установкой сбросить прошивку до заводских настроек для исключения накладок.
 
-   сначала ставим   [** HELPER SCRIPT**](https://guilouz.github.io/Creality-Helper-Script-Wiki/helper-script/helper-script-installation/) рекомендованные пункты:
+   сначала ставим   [**HELPER SCRIPT**](https://guilouz.github.io/Creality-Helper-Script-Wiki/helper-script/helper-script-installation/) рекомендованные пункты:
 
       1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 16
  
