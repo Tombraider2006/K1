@@ -113,4 +113,4 @@ switch_pin: PA7
 
 Можно и так
 
-спасибо за мануал https://t.me/prokudinvn
+[спасибо за мануал](https://telegra.ph/Datchik-filamenta-sfs-20-dlya-k1c-09-30)
