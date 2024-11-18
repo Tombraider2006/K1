@@ -144,7 +144,7 @@ runout_gcode:
 
 ```
 [filament_motion_sensor filament_sensor]
-detection_length: 5.0
+detection_length: 5.3
 extruder:extruder
 pause_on_runout: true
 switch_pin: ^PC15
