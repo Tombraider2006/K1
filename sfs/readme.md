@@ -149,12 +149,7 @@ extruder:extruder
 pause_on_runout: true
 switch_pin: ^PC15
 runout_gcode:
-  M118 Filament runout/blocked!
-  {% if printer.extruder.can_extrude|lower == 'true' %}
-    G91
-    G0 E30 F600
-    G90
-  {% endif %}
+  RESPOND TYPE=command MSG="Filament runout/blocked!"
   beep # звуковой сигнал если заканчивается филамент во время печати 
   beep # два раза чтобы было 2 пика для отличия от сигнала в конце печати
 ```
