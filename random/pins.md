@@ -54,9 +54,9 @@ gcode:
   M107 P2
   END_PRINT_POINT
   {% if printer['output_pin FAN_END_STOP'].value == 0 %}
-   WAIT_TEMP_START
+    WAIT_TEMP_START
   {% else %}
-   SET_PIN PIN=FAN_END_STOP VALUE=0
+    SET_PIN PIN=FAN_END_STOP VALUE=0
   {% endif %}
   M84
 ```
