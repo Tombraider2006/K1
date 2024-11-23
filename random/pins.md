@@ -51,7 +51,6 @@ gcode:
   M107 P1
   M107 P2
   END_PRINT_POINT
-  beep
   {% if printer['output_pin FAN_END_STOP'].value == 0 %}
    WAIT_TEMP_START
   {% else %}
