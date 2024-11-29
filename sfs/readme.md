@@ -166,7 +166,7 @@ pause_on_runout: true
 switch_pin: ^PC15
 runout_gcode:
   RESPOND TYPE=command MSG="Filament runout/blocked!"
-  UPDATE_DELAYED_GCODE ID=ercf_alarm DURATION=10
+  UPDATE_DELAYED_GCODE ID=ercf_alarm DURATION=15
 insert_gcode:
   RESPOND TYPE=command MSG="Filament inserted"
   UPDATE_DELAYED_GCODE ID=ercf_alarm DURATION=0
