@@ -170,6 +170,7 @@ runout_gcode:
 insert_gcode:
   RESPOND TYPE=command MSG="Filament inserted"
   UPDATE_DELAYED_GCODE ID=ercf_alarm DURATION=0
+  SET_PIN PIN=LED VALUE=1
 
 [delayed_gcode ercf_alarm]
 initial_duration: 0
