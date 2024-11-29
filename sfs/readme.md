@@ -154,7 +154,39 @@ runout_gcode:
   beep # два раза чтобы было 2 пика для отличия от сигнала в конце печати
 ```
 
-строки с `beep` если у вас к1с вам не нужны, у вас нет пищалки. так же будет выдавать ошибку если вы не установили в своем принтере Buzzer Support через Helper Script  последние 2 строки кода опциональные.   
+строки с `beep` если у вас к1с вам не нужны, у вас нет пищалки. так же будет выдавать ошибку если вы не установили в своем принтере Buzzer Support через Helper Script  последние 2 строки кода опциональные. 
+
+P.S. мне тут не спалось и решил я что пользователям к1с как то обидно будет что нет у них никакой сигналки при паузе по движению поэтому немного переписал модуль чтобы моргал подсветкой. Не супер, но хоть что то.
+
+```
+[filament_motion_sensor filament_sensor]
+detection_length: 5.3
+extruder:extruder
+pause_on_runout: true
+switch_pin: ^PC15
+runout_gcode:
+  RESPOND TYPE=command MSG="Filament runout/blocked!"
+  UPDATE_DELAYED_GCODE ID=ercf_alarm DURATION=10
+insert_gcode:
+  RESPOND TYPE=command MSG="Filament inserted"
+  UPDATE_DELAYED_GCODE ID=ercf_alarm DURATION=0
+
+[delayed_gcode ercf_alarm]
+initial_duration: 0
+gcode:
+  SET_PIN PIN=LED VALUE=0
+  G4 P1000
+  SET_PIN PIN=LED VALUE=1
+  G4 P1000
+  SET_PIN PIN=LED VALUE=0
+  G4 P1000
+  SET_PIN PIN=LED VALUE=1
+  G4 P1000
+  SET_PIN PIN=LED VALUE=0
+  G4 P1000
+  SET_PIN PIN=LED VALUE=1
+  G4 P1000
+```
 
 модель для установки [скачать тут](BTT_SFS.zip) крепится штатными винтами из комплекта к креплению.
 
