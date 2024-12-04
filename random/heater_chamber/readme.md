@@ -104,7 +104,7 @@ min_speed: 0.0
 [respond]
 
 [duplicate_pin_override]
-pins: PC0, PC5, PB2, PC6, ADC_TEMPERATURE
+pins: PC5, PB2, PC6, ADC_TEMPERATURE
 
 [temperature_fan soc_fan]
 pin: PB2
