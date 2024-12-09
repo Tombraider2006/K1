@@ -74,3 +74,4 @@ min_speed: 0.0
 tachometer_pin:PC6
 ```
 
+![](k1se.jpg)
