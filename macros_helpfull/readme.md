@@ -54,7 +54,7 @@
 
 ```
 [duplicate_pin_override]
-pins: PB2, ADC_TEMPERATURE
+pins: PC6, PB2, ADC_TEMPERATURE
 
 [temperature_fan soc_fan]
 pin: PB2
