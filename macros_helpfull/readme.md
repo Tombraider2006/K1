@@ -47,3 +47,30 @@
 После этого ваша вебпанель приобретет более аккуратный вид и нужные вам макросы будут более наглядно расположены
 
 ![](image3.jpg)
+
+<h2>Разные мелочи</h2>
+
+В K1SE ставить 8 и 9 пункт хелпер скрипта не получится потому что нет ни заднего ни бокового вентилятора. но в 9 пункте есть полезный макрос управления вентилятором обдувом метеринской платы. чтобы он у нас заработал достаточно открыть `printer.cfg` в свободном месте вставляем следующий блок:
+
+```
+[duplicate_pin_override]
+pins: PB2, ADC_TEMPERATURE
+
+[temperature_fan soc_fan]
+pin: PB2
+cycle_time: 0.0100
+kick_start_time: 0.5
+hardware_pwm: false
+max_power: 1
+shutdown_speed: 0
+sensor_type: temperature_mcu
+min_temp: 0
+max_temp: 100
+control: watermark
+max_delta: 2
+target_temp: 45.0
+max_speed: 1.0
+min_speed: 0.0
+tachometer_pin:PC6
+```
+
