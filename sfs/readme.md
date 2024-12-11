@@ -150,15 +150,17 @@ pause_on_runout: true
 switch_pin: ^PC15
 runout_gcode:
   RESPOND TYPE=command MSG="Filament runout/blocked!"
-    UPDATE_DELAYED_GCODE ID=sfs_alarm DURATION=10
+  UPDATE_DELAYED_GCODE ID=sfs_alarm DURATION=1
 insert_gcode:
   RESPOND TYPE=command MSG="Filament inserted"
   UPDATE_DELAYED_GCODE ID=sfs_alarm DURATION=0
 
 [delayed_gcode sfs_alarm]
-initial_duration: 0
+# initial_duration: 2
 gcode:
   beep # звуковой сигнал если заканчивается филамент во время печати каждые 10 секунд.
+  UPDATE_DELAYED_GCODE ID=sfs_alarm DURATION=9 #если не хотите повторения сигнала просто сотрите эту строчку.
+
 ```
 
 строка с `beep` если у вас к1с вам не нужна, у вас нет пищалки. так же будет выдавать ошибку если вы не установили в своем принтере Buzzer Support через Helper Script.  Если у вас нет пищалки или вы не устанавливали - смотрите второй вариант кода ниже.
@@ -173,7 +175,7 @@ pause_on_runout: true
 switch_pin: ^PC15
 runout_gcode:
   RESPOND TYPE=command MSG="Filament runout/blocked!"
-  UPDATE_DELAYED_GCODE ID=sfs_alarm DURATION=15
+  UPDATE_DELAYED_GCODE ID=sfs_alarm DURATION=1
 insert_gcode:
   RESPOND TYPE=command MSG="Filament inserted"
   UPDATE_DELAYED_GCODE ID=sfs_alarm DURATION=0
@@ -194,6 +196,7 @@ gcode:
   G4 P500
   SET_PIN PIN=LED VALUE=1
   G4 P1000
+  UPDATE_DELAYED_GCODE ID=sfs_alarm DURATION=5
 ```
 
 модель для установки [скачать тут](BTT_SFS.zip) крепится штатными винтами из комплекта к креплению.
