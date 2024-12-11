@@ -158,10 +158,23 @@ insert_gcode:
 [delayed_gcode sfs_alarm]
 # initial_duration: 2
 gcode:
-  beep # звуковой сигнал если заканчивается филамент во время печати каждые 10 секунд.
-  UPDATE_DELAYED_GCODE ID=sfs_alarm DURATION=9 #если не хотите повторения сигнала просто сотрите эту строчку.
+  beep # звуковой сигнал если заканчивается филамент во время печати.
+#  UPDATE_DELAYED_GCODE ID=sfs_alarm DURATION=9 #если хотите повторения сигнала раскоментируйте эту строчку. подробности ниже.
 
 ```
+
+**Внимание** Если вы хотите чтобы сигнал повторялся. Дело в том что мы задействовали  только датчик движения, так как у нас  состояние датчика не меняется на вставлен то и `insert_gcode` выполнен не будет, и значит команды на прекращения сигнала не будет.  Чтобы этого избежать идем в файл `gcode_macro.cfg` ищем `[gcode_macro RESUME]` и в конце блока вписываем 
+
+```
+UPDATE_DELAYED_GCODE ID=sfs_alarm DURATION=0
+```
+
+получится как то так:
+
+![](resume.png)
+
+
+
 
 строка с `beep` если у вас к1с вам не нужна, у вас нет пищалки. так же будет выдавать ошибку если вы не установили в своем принтере Buzzer Support через Helper Script.  Если у вас нет пищалки или вы не устанавливали - смотрите второй вариант кода ниже.
 
@@ -182,7 +195,7 @@ insert_gcode:
   SET_PIN PIN=LED VALUE=1
 
 [delayed_gcode sfs_alarm]
-initial_duration: 0
+# initial_duration: 0
 gcode:
   SET_PIN PIN=LED VALUE=0
   G4 P500
@@ -196,7 +209,7 @@ gcode:
   G4 P500
   SET_PIN PIN=LED VALUE=1
   G4 P1000
-  UPDATE_DELAYED_GCODE ID=sfs_alarm DURATION=5
+#  UPDATE_DELAYED_GCODE ID=sfs_alarm DURATION=5 #если хотите повторения сигнала раскоментируйте эту строчку. подробности выше.
 ```
 
 модель для установки [скачать тут](BTT_SFS.zip) крепится штатными винтами из комплекта к креплению.
