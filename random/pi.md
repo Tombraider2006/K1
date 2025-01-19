@@ -88,4 +88,17 @@ sync_rate: 5
 Необходимо поставить [KIAUH](https://github.com/dw-0/kiauh) и через него установить klippersreen более подробно можно почитать [тут](https://github.com/KlipperScreen/KlipperScreen)
 
 
+содержимое файла KlipperScreen.conf в папке `/home/pi/printer_data/config`
+
+```
+[printer k1]
+# Camera configuration
+#camera_url: http://ваш_IP:4408//webcam/?action=stream
+# Define the moonraker host/port if different from 127.0.0.1 and 7125
+moonraker_host: ваш_IP
+moonraker_port: 7125
+
+```
+`ваш_IP` замениете на адрес вашего принтера в локальной сети. 
+
 ![](/random/images/klipperscreen2.png)
