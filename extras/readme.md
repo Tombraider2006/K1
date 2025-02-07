@@ -94,6 +94,9 @@ END_PRINT
 
 [**калибровка точности с помощью OrcaSlicer**](https://youtu.be/xzC4Fdf7mDU?si=dvUSbCUAnS6y5BpE)
 
+[**Не ошибись! Частые ошибки настройки 3D принтеров**](https://youtu.be/3qv3-SMg5xY?si=traAK1FHAlSTLU77)
+
+
 [**Все о филаментах**](https://www.youtube.com/watch?v=CzgOCkJbcxE)
 
 [**Калибровка точности по Соркину**](https://youtu.be/6seFEWIGTtU?si=9I6r6bh5QEWTt1Us)
