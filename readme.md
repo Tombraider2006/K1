@@ -73,7 +73,10 @@
 [**Cartographer 3D. Если переходить на чистый клиппер придется уходить с родного модуля тензодатчиков.**](https://docs.cartographer3d.com/cartographer-probe/installation-and-setup/creality-k1-and-k1-max-specific)
 
 [**Установка Creality K1 BTT Eddy**](https://ballaswag.github.io/blog/creality-k1-btt-eddy-guide/) буду ставить себе.. потом распишу подробнее.
+
 [**модель держателя BTT Eddy с соединением в разьем лидара**](https://www.printables.com/model/1040464-btteddy-creality-k1-k1c-k1-max-mount)
+
+[**Подключение одноплатника OrangePi (или любого другого) к K1.**](https://github.com/Lukich86/K1-host-conversion)
 
 [**выбор самурая - ставим другую материнку, на примере MANTA 8**](https://docs.google.com/document/d/1aXhsg2oq-k43R_2uWEkFxx4bUmE72XdTxru3hAUbRM0/edit?tab=t.0)
 
