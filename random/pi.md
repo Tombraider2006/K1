@@ -76,8 +76,10 @@ sync_rate: 5
 ```
 вместо `ваш_IP` указываем ip-адрес сервера spoolman
 
-
 ![](/random/images/spollman2.png)
+
+
+почитать про интеграцию spoolman в orcaslicer [**можно тут**](https://t.me/tombraider2006/92)
 
 <h3>KlipperScreen</h3>
 
