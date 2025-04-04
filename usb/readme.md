@@ -64,7 +64,7 @@ ls /dev/serial/by-path/*
 ls /dev/serial/by-id/*
 ```
 
-должны увидеть что-то типа такого:
+должны увидеть что-то типа такого:(цифры буквы могут быть другими. важно что такое устройство определяется)
 
 ```
  /dev/serial/by-id/usb-Klipper_rp2040_E660B4404B3EAB35-if00
@@ -84,7 +84,7 @@ ls /dev/serial/by-id/*
 
 ```
 [mcu pico]
-serial: /dev/serial/by-id/usb-Klipper_rp2040_E660B4404B3EAB35-if00
+serial: /dev/serial/by-id/usb-Klipper_rp2040_E660B4404B3EAB35-if00 # строку берем из пункта 6. свою.
 ```
 где после `serial:` идет та  строка что мы получили в предыдущем пункте.
 
