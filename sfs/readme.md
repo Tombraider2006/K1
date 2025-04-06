@@ -127,6 +127,10 @@ switch_pin: PA7
 
 ![](n2.png)
 
+на материнской плате:
+
+![](pins_mothrboard.png)
+
 Далее заходим в `printer.cfg` и ищем строки:
 
 ```
