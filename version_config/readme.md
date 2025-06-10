@@ -106,6 +106,8 @@ opkg install wget-ssl
 
 ### Новый алгоритм измерения Input Shaping
 
+Прочитать про отличия нового от старого алгоритма можно [**тут**](https://klipper.discourse.group/t/a-bit-different-resonance-test/17227)
+
 Чтобы его применить заходим по ssh и копируем следующий блок:
 
 ```
