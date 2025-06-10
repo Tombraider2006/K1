@@ -125,9 +125,11 @@ wget -P /usr/share/klipper/klippy/extras/ https://raw.githubusercontent.com/Kons
 wget -P /usr/share/klipper/klippy/extras/ https://raw.githubusercontent.com/Konstant-3d/K1C-mods/refs/heads/main/usr/share/klipper/klippy/extras/shaper_calibrate.py
 chmod 644 resonance_tester.py
 chmod 644 shaper_calibrate.py
+sed -i 's/accel_per_hz: 75/accel_per_hz: 60/' /usr/data/printer_data/config/printer.cfg
 reboot
 ```
 после введения данных команд принтер перезагрузится и у вас будет новый алгоритм
+
 
 
   <h2>порядок установки если вам нужен более новый клиппер</h2>
