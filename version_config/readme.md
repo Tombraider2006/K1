@@ -102,10 +102,34 @@ opkg install wget-ssl
 
 Также, если у вас используется мультиматериальная система (ERCF, TradRack, MMU, CFS и им подобные) - обратите внимание, что башня очистки не получает своего названия объекта и из-за этого на неё не распространяется область построения карты стола - пожалуйста, планируйте её размещение так, чтобы она попадала между другими объектами 
 
+
+
+### Новый алгоритм измерения Input Shaping
+
+Чтобы его применить заходим по ssh и копируем следующий блок:
+
+```
+cd /usr/share/klipper/klippy/
+mv toolhead.py toolhead.py.bak
+rm toolhead.pyc
+wget -P /usr/share/klipper/klippy/ https://raw.githubusercontent.com/Konstant-3d/K1C-mods/refs/heads/main/usr/share/klipper/klippy/toolhead.py
+chmod 644 toolhead.py
+cd /usr/share/klipper/klippy/extras/
+mv resonance_tester.py resonance_tester.py.bak
+mv shaper_calibrate.py shaper_calibrate.py.bak
+rm resonance_tester.pyc
+rm shaper_calibrate.pyc
+wget -P /usr/share/klipper/klippy/extras/ https://raw.githubusercontent.com/Konstant-3d/K1C-mods/refs/heads/main/usr/share/klipper/klippy/extras/resonance_tester.py
+wget -P /usr/share/klipper/klippy/extras/ https://raw.githubusercontent.com/Konstant-3d/K1C-mods/refs/heads/main/usr/share/klipper/klippy/extras/shaper_calibrate.py
+chmod 644 resonance_tester.py
+chmod 644 shaper_calibrate.py
+reboot
+```
+после введения данных команд принтер перезагрузится и у вас будет новый алгоритм
+
+
   <h2>порядок установки если вам нужен более новый клиппер</h2>
 
- **Господа те, кто прошел по ссылке от Дмитрия Соркина, спешу вас разочаровать, обновление от апреля 24 года не дает новых алгоритмов Input Shaper оно было введено позже.**
- 
   Действия, которые нужно сделать:
 
 1. Сбросьте настройки до заводских результатов
