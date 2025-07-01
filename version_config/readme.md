@@ -134,7 +134,7 @@ reboot
 
 ```
 cd /usr/share/klipper/klippy/
-mv toolhead.py toolhead.py.bak
+mv toolhead.py toolhead.py.bak1
 wget -P /usr/share/klipper/klippy/ https://raw.githubusercontent.com/Konstant-3d/K1C-mods/refs/heads/main/usr/share/klipper/klippy/toolhead_1_3_5_11.py
 mv toolhead_1_3_5_11.py toolhead.py
 chmod 644 toolhead.py
