@@ -129,8 +129,18 @@ sed -i 's/accel_per_hz: 75/accel_per_hz: 60/' /usr/data/printer_data/config/prin
 reboot
 ```
 после введения данных команд принтер перезагрузится и у вас будет новый алгоритм
+### Для K1SE с прошивкой 1.3.5.11
+По неведомой причине для данной прошивки необходим немного другой файл. Решение уже найдено, чтобы его применить вам, и только вам!, на других прошивках и принтерах работать не будет, необходимо в консоль ssh скопировать следующие команды:
 
-
+```
+cd /usr/share/klipper/klippy/
+mv toolhead.py toolhead.py.bak
+wget -P /usr/share/klipper/klippy/ https://raw.githubusercontent.com/Konstant-3d/K1C-mods/refs/heads/main/usr/share/klipper/klippy/toolhead_1_3_5_11.py
+mv toolhead_1_3_5_11.py toolhead.py
+chmod 644 toolhead.py
+reboot
+```
+после введения данных команд принтер перезагрузится и у вас будет новый алгоритм
 
   <h2>порядок установки если вам нужен более новый клиппер</h2>
 
