@@ -34,6 +34,29 @@
    git config --global --unset http.proxy
    ```
 
+### для установки хелпер скрипт на k1 с обновлением для CFS на прошивке 2.3.5.33
+
+по ssh вставляем следующие команды: 
+
+```
+wget http://bin.entware.net/mipselsf-k3.4/installer/generic.sh -O - | sh
+export PATH=/opt/bin:/opt/sbin:$PATH
+echo '/opt/etc/init.d/rc.unslung start' >> /etc/rc.local; echo 'exit 0' >> /etc/rc.local
+opkg update
+opkg install git-http
+# opkg install git  # (если предыдущая команда выдала ошибку)
+git clone --depth 1 https://github.com/Guilouz/Creality-Helper-Script.git /usr/data/helper-script
+mv /usr/bin/git /usr/bin/git.bak
+ln -s /opt/bin/git /usr/bin/git
+git config --global --add safe.directory /usr/data/moonraker/moonraker
+
+```
+после запускаем helper script:
+
+```
+sh /usr/data/helper-script/helper.sh
+```
+
 <h2>калибровки после установки.</h2>
  
  про полезные макросы читаем [**тут**](/macros_helpfull/readme.md)
