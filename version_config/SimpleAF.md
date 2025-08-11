@@ -120,7 +120,7 @@ sync
 наша строка будет иметь вид:
 
 ```
-/usr/data/pellcorp/k1/installer.sh --install btteddy --mount Mount Pellcorp
+/usr/data/pellcorp/k1/installer.sh --install btteddy --mount Pellcorp
 
 ```
 
@@ -195,3 +195,4 @@ RESPOND TYPE=command MSG="Retract speed set to [retraction_speed]/[deretraction_
 #### Если после прочтения вам захотелось поставить такую прошивку, но вы не уверены в своих силах.
 
  Вы можете обратиться ко мне за [**консультацией**](/kurs.md). и я помогу с установкой програмного обеспечения.
+
