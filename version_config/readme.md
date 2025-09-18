@@ -163,6 +163,43 @@ reboot
 
 и вписываем параметр `sweeping_period: 0`
 
+или просто в панели ssh вписываем следующий код:
+
+```
+cp /usr/data/printer_data/config/printer.cfg /usr/data/printer_data/config/printer.cfg.bak
+
+sed -i '/resonance_tester/{
+n
+n
+n
+n
+n
+n
+a\
+sweeping_period: 0
+}' /usr/data/printer_data/config/printer.cfg
+
+
+```
+если захотим и после этого вернуть к новому алгоритму 
+
+```
+cp /usr/data/printer_data/config/printer.cfg /usr/data/printer_data/config/printer.cfg.bak
+
+sed -i '/resonance_tester/{
+n
+n
+n
+n
+n
+n
+a\
+sweeping_period: 1.2
+}' /usr/data/printer_data/config/printer.cfg
+
+```
+
+или в файле printer.cfg находим значение параметра `sweeping_period: 0` меняем на `sweeping_period: 1.2`
 
 ### Для K1SE с прошивкой 1.3.5.11
 По неведомой причине для данной прошивки необходим немного другой файл. Решение уже найдено, чтобы его применить вам, и только вам!, на других прошивках и принтерах работать не будет, необходимо в консоль ssh дополнительно к основному скрипту, скопировать следующие команды:
