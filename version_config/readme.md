@@ -135,6 +135,19 @@ opkg install wget-ssl
 
 Прочитать про отличия нового от старого алгоритма можно [**тут**](https://klipper.discourse.group/t/a-bit-different-resonance-test/17227)
 
+
+### автоматический скрипт
+
+![](/version_config/shaper_menu.jpg)
+
+запускаем строчку в консоли ssh выбираем пункт. после установки произойдет перезагрузка принтера для применения настроек. всё. 
+
+```
+wget --no-check-certificate -O /tmp/shaper.sh https://raw.githubusercontent.com/Tombraider2006/K1/refs/heads/main/random/shaper.sh && chmod +x /tmp/shaper.sh && sh /tmp/shaper.sh
+
+```
+
+<details><summary>ручной способ</summary>
 Чтобы его применить заходим по ssh и копируем следующий блок:
 
 ```
@@ -213,7 +226,7 @@ chmod 644 toolhead.py
 reboot
 ```
 после введения данных команд принтер перезагрузится и у вас будет новый алгоритм
-
+<details>
 #### Продолжая тему нового алгоритма.
 
 С одной стороны он несомненно показывает более точные результаты  по компенсации резонанса, но сильно смазывает картину при диагностике  по моему мануалу определения "нужно ли лечить ось икс". 
