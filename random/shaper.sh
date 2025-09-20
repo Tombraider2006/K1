@@ -76,14 +76,21 @@ update_k1se() {
 }
 
 rollback() {
-    echo_yellow "=== Возврат файлов в исходное состояние ==="
-    cd /usr/share/klipper/klippy/ || return 1
-    [ -f toolhead.py.bak ] && mv toolhead.py.bak toolhead.py
-    cd /usr/share/klipper/klippy/extras/ || return 1
-    [ -f resonance_tester.py.bak ] && mv resonance_tester.py.bak resonance_tester.py
-    [ -f shaper_calibrate.py.bak ] && mv shaper_calibrate.py.bak shaper_calibrate.py
-    echo_green "✔ Файлы восстановлены"
-    NEED_REBOOT=1
+    echo_yellow "=== Откат алгоритма Sweeping Period ==="
+    if grep -q "sweeping_period:" /usr/data/printer_data/config/printer.cfg 2>/dev/null; then
+        current=$(grep "sweeping_period:" /usr/data/printer_data/config/printer.cfg | awk '{print $2}')
+        if [ "$current" = "1.2" ]; then
+            sed -i 's/sweeping_period: 1.2/sweeping_period: 0/' /usr/data/printer_data/config/printer.cfg
+            echo_green "✔ Алгоритм откатан: sweeping_period = 0 (старый алгоритм)"
+        elif [ "$current" = "0" ]; then
+            echo_green "✔ Алгоритм уже в исходном состоянии (старый = 0)"
+        else
+            echo_red "✘ Некорректное значение sweeping_period: $current"
+        fi
+        NEED_REBOOT=1
+    else
+        echo_red "✘ Параметр sweeping_period не найден. Откат невозможен."
+    fi
 }
 
 toggle_algorithm() {
