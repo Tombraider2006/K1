@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Очистка экрана
+clear
+
 # Цвета
 GREEN="\033[32m"
 RED="\033[31m"
@@ -13,10 +16,12 @@ EXTRAS_PATH="$KLIPPER_PATH/extras"
 # === Шапка ===
 printf "$GREEN"
 printf "=======================================================\n"
-printf "   █▄▀ █ █▄ █ ▄▀     K1S / K1 Max Firmware Patch\n"
-printf "   █ █ █ █ ▀█ ▀▄     (by Tom Tomich)\n"
-printf "=======================================================\n"
-printf "   Автоматическое обновление и откат модулей Klipper\n"
+printf "   /\\     /\\   K1S / K1 Max Firmware Patch\n"
+printf "  {  `---'  }  (by Tom Tomich)\n"
+printf "  {  O   O  }  Автоматическое обновление и откат Klipper\n"
+printf "  ~~>  V  <~~\n"
+printf "   \\  \\|/  /\n"
+printf "    `-----'\n"
 printf "=======================================================\n"
 printf "$RESET\n"
 
@@ -50,7 +55,7 @@ update() {
     fi
 
     loading_animation "Загрузка нового toolhead.py"
-    wget -q -P "$KLIPPER_PATH" \
+    wget --no-check-certificate -q -P "$KLIPPER_PATH" \
       https://raw.githubusercontent.com/Konstant-3d/K1C-mods/refs/heads/main/usr/share/klipper/klippy/toolhead.py || { echo_red "Ошибка загрузки toolhead.py"; return 1; }
     chmod 644 toolhead.py
 
@@ -66,9 +71,9 @@ update() {
     fi
 
     loading_animation "Загрузка новых extras"
-    wget -q -P "$EXTRAS_PATH" \
+    wget --no-check-certificate -q -P "$EXTRAS_PATH" \
       https://raw.githubusercontent.com/Konstant-3d/K1C-mods/refs/heads/main/usr/share/klipper/klippy/extras/resonance_tester.py || { echo_red "Ошибка загрузки resonance_tester.py"; return 1; }
-    wget -q -P "$EXTRAS_PATH" \
+    wget --no-check-certificate -q -P "$EXTRAS_PATH" \
       https://raw.githubusercontent.com/Konstant-3d/K1C-mods/refs/heads/main/usr/share/klipper/klippy/extras/shaper_calibrate.py || { echo_red "Ошибка загрузки shaper_calibrate.py"; return 1; }
     chmod 644 resonance_tester.py shaper_calibrate.py
 
@@ -97,7 +102,7 @@ update() {
 }
 
 rollback() {
-    echo_red "=== Откат изменений для K1S / K1 Max ==="
+    echo_yellow "=== Откат изменений для K1S / K1 Max ==="
 
     if [ ! -f "$CFG" ]; then
         echo_red "Файл $CFG не найден!"
@@ -109,7 +114,7 @@ rollback() {
     sed -i 's/accel_per_hz: 60/accel_per_hz: 75/' "$CFG"
     sed -i '/sweeping_period: 0/d' "$CFG"
 
-    echo_red "=== Откат завершён успешно! ==="
+    echo_green "=== Откат завершён успешно! ==="
     return 0
 }
 
