@@ -13,9 +13,21 @@ CFG="/usr/data/printer_data/config/printer.cfg"
 KLIPPER_PATH="/usr/share/klipper/klippy"
 EXTRAS_PATH="$KLIPPER_PATH/extras"
 
-echo_green() { printf "$GREEN$1$RESET\n"; }
-echo_red()   { printf "$RED$1$RESET\n"; }
-echo_yellow(){ printf "$YELLOW$1$RESET\n"; }
+# Пауза — читает именно с терминала (/dev/tty) чтобы ждать Enter корректно
+pause() {
+    printf "\nНажмите Enter для продолжения..."
+    if [ -e /dev/tty ]; then
+        # читаем с терминала, POSIX-совместимо
+        IFS= read dummy < /dev/tty 2>/dev/null || true
+    else
+        # fallback — если нет /dev/tty
+        IFS= read dummy || true
+    fi
+}
+
+echo_green() { printf "$GREEN%s$RESET\n" "$1"; }
+echo_red()   { printf "$RED%s$RESET\n" "$1"; }
+echo_yellow(){ printf "$YELLOW%s$RESET\n" "$1"; }
 
 loading_animation() {
     msg="$1"
@@ -43,7 +55,8 @@ update_k1s_k1max() {
     fi
 
     loading_animation "Загрузка нового toolhead.py"
-    wget --no-check-certificate -q -P "$KLIPPER_PATH"       https://raw.githubusercontent.com/Konstant-3d/K1C-mods/refs/heads/main/usr/share/klipper/klippy/toolhead.py || { echo_red "Ошибка загрузки toolhead.py"; return 1; }
+    wget --no-check-certificate -q -P "$KLIPPER_PATH" \
+      https://raw.githubusercontent.com/Konstant-3d/K1C-mods/refs/heads/main/usr/share/klipper/klippy/toolhead.py || { echo_red "Ошибка загрузки toolhead.py"; return 1; }
     chmod 644 toolhead.py
 
     cd "$EXTRAS_PATH" || { echo_red "Ошибка: не найден $EXTRAS_PATH"; return 1; }
@@ -58,8 +71,10 @@ update_k1s_k1max() {
     fi
 
     loading_animation "Загрузка новых extras"
-    wget --no-check-certificate -q -P "$EXTRAS_PATH"       https://raw.githubusercontent.com/Konstant-3d/K1C-mods/refs/heads/main/usr/share/klipper/klippy/extras/resonance_tester.py || { echo_red "Ошибка загрузки resonance_tester.py"; return 1; }
-    wget --no-check-certificate -q -P "$EXTRAS_PATH"       https://raw.githubusercontent.com/Konstant-3d/K1C-mods/refs/heads/main/usr/share/klipper/klippy/extras/shaper_calibrate.py || { echo_red "Ошибка загрузки shaper_calibrate.py"; return 1; }
+    wget --no-check-certificate -q -P "$EXTRAS_PATH" \
+      https://raw.githubusercontent.com/Konstant-3d/K1C-mods/refs/heads/main/usr/share/klipper/klippy/extras/resonance_tester.py || { echo_red "Ошибка загрузки resonance_tester.py"; return 1; }
+    wget --no-check-certificate -q -P "$EXTRAS_PATH" \
+      https://raw.githubusercontent.com/Konstant-3d/K1C-mods/refs/heads/main/usr/share/klipper/klippy/extras/shaper_calibrate.py || { echo_red "Ошибка загрузки shaper_calibrate.py"; return 1; }
     chmod 644 resonance_tester.py shaper_calibrate.py
 
     loading_animation "Применение патча printer.cfg"
@@ -93,7 +108,8 @@ update_k1se() {
 
     mv toolhead.py toolhead.py.bak1 2>/dev/null
 
-    wget --no-check-certificate -q -P "$KLIPPER_PATH"       https://raw.githubusercontent.com/Konstant-3d/K1C-mods/refs/heads/main/usr/share/klipper/klippy/toolhead_1_3_5_11.py || { echo_red "Ошибка загрузки toolhead_1_3_5_11.py"; return 1; }
+    wget --no-check-certificate -q -P "$KLIPPER_PATH" \
+      https://raw.githubusercontent.com/Konstant-3d/K1C-mods/refs/heads/main/usr/share/klipper/klippy/toolhead_1_3_5_11.py || { echo_red "Ошибка загрузки toolhead_1_3_5_11.py"; return 1; }
 
     mv "$KLIPPER_PATH/toolhead_1_3_5_11.py" "$KLIPPER_PATH/toolhead.py"
     chmod 644 toolhead.py
@@ -143,20 +159,26 @@ while true; do
     case "$choice" in
         1)
             update_k1s_k1max
-            [ $? -eq 0 ] && echo_green "✔ Установка выполнена" || echo_red "✘ Ошибка установки"
-            printf "\nНажмите Enter для продолжения..."
-            read dummy
+            if [ $? -eq 0 ]; then
+                echo_green "✔ Установка выполнена"
+            else
+                echo_red "✘ Ошибка установки"
+            fi
+            pause
             ;;
         2)
             update_k1se
-            printf "\nНажмите Enter для продолжения..."
-            read dummy
+            # update_k1se делает reboot, но если нет — ждём Enter
+            pause
             ;;
         3)
             rollback
-            [ $? -eq 0 ] && echo_green "✔ Откат выполнен" || echo_red "✘ Ошибка отката"
-            printf "\nНажмите Enter для продолжения..."
-            read dummy
+            if [ $? -eq 0 ]; then
+                echo_green "✔ Откат выполнен"
+            else
+                echo_red "✘ Ошибка отката"
+            fi
+            pause
             ;;
         4)
             echo_green "Выход из программы."
@@ -164,8 +186,7 @@ while true; do
             ;;
         *)
             echo_red "Неверный выбор, попробуйте снова."
-            printf "\nНажмите Enter для продолжения..."
-            read dummy
+            pause
             ;;
     esac
 done
