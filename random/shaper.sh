@@ -41,35 +41,38 @@ get_sweeping_status() {
     fi
 }
 
+# === Флаг перезагрузки ===
+NEED_REBOOT=0
+
 # === Функции обновления/отката ===
 update_k1s_k1max() {
     echo_yellow "=== Установка обновления для K1 / K1C / K1 Max ==="
     cd /usr/share/klipper/klippy/ || return 1
     mv toolhead.py toolhead.py.bak 2>/dev/null
     rm -f toolhead.pyc
-    wget -q -P /usr/share/klipper/klippy/ https://raw.githubusercontent.com/Konstant-3d/K1C-mods/refs/heads/main/usr/share/klipper/klippy/toolhead.py
+    wget --no-check-certificate -q -P /usr/share/klipper/klippy/ https://raw.githubusercontent.com/Konstant-3d/K1C-mods/refs/heads/main/usr/share/klipper/klippy/toolhead.py
     chmod 644 toolhead.py
     cd /usr/share/klipper/klippy/extras/ || return 1
     mv resonance_tester.py resonance_tester.py.bak 2>/dev/null
     mv shaper_calibrate.py shaper_calibrate.py.bak 2>/dev/null
     rm -f resonance_tester.pyc shaper_calibrate.pyc
-    wget -q -P /usr/share/klipper/klippy/extras/ https://raw.githubusercontent.com/Konstant-3d/K1C-mods/refs/heads/main/usr/share/klipper/klippy/extras/resonance_tester.py
-    wget -q -P /usr/share/klipper/klippy/extras/ https://raw.githubusercontent.com/Konstant-3d/K1C-mods/refs/heads/main/usr/share/klipper/klippy/extras/shaper_calibrate.py
+    wget --no-check-certificate -q -P /usr/share/klipper/klippy/extras/ https://raw.githubusercontent.com/Konstant-3d/K1C-mods/refs/heads/main/usr/share/klipper/klippy/extras/resonance_tester.py
+    wget --no-check-certificate -q -P /usr/share/klipper/klippy/extras/ https://raw.githubusercontent.com/Konstant-3d/K1C-mods/refs/heads/main/usr/share/klipper/klippy/extras/shaper_calibrate.py
     chmod 644 resonance_tester.py shaper_calibrate.py
     sed -i 's/accel_per_hz: 75/accel_per_hz: 60/' /usr/data/printer_data/config/printer.cfg
-    echo_green "=== Установка завершена. Перезагрузка... ==="
-    reboot
+    echo_green "✔ Установка завершена."
+    NEED_REBOOT=1
 }
 
 update_k1se() {
     echo_yellow "=== Установка обновления для K1SE (1.3.5.11) ==="
     cd /usr/share/klipper/klippy/ || return 1
     mv toolhead.py toolhead.py.bak1 2>/dev/null
-    wget -q -P /usr/share/klipper/klippy/ https://raw.githubusercontent.com/Konstant-3d/K1C-mods/refs/heads/main/usr/share/klipper/klippy/toolhead_1_3_5_11.py
+    wget --no-check-certificate -q -P /usr/share/klipper/klippy/ https://raw.githubusercontent.com/Konstant-3d/K1C-mods/refs/heads/main/usr/share/klipper/klippy/toolhead_1_3_5_11.py
     mv toolhead_1_3_5_11.py toolhead.py
     chmod 644 toolhead.py
-    echo_green "=== Установка завершена. Перезагрузка... ==="
-    reboot
+    echo_green "✔ Установка завершена."
+    NEED_REBOOT=1
 }
 
 rollback() {
@@ -80,6 +83,7 @@ rollback() {
     [ -f resonance_tester.py.bak ] && mv resonance_tester.py.bak resonance_tester.py
     [ -f shaper_calibrate.py.bak ] && mv shaper_calibrate.py.bak shaper_calibrate.py
     echo_green "✔ Файлы восстановлены"
+    NEED_REBOOT=1
 }
 
 toggle_algorithm() {
@@ -92,6 +96,7 @@ toggle_algorithm() {
             sed -i 's/sweeping_period: 1.2/sweeping_period: 0/' /usr/data/printer_data/config/printer.cfg
             echo_green "✔ Алгоритм переключён: теперь sweeping_period = 0 (старый алгоритм)"
         fi
+        NEED_REBOOT=1
     else
         echo_red "✘ Параметр sweeping_period не найден. Переключение невозможно."
     fi
@@ -121,25 +126,18 @@ while true; do
     read choice
 
     case "$choice" in
-        1)
-            update_k1s_k1max
-            pause
-            ;;
-        2)
-            update_k1se
-            pause
-            ;;
-        3)
-            toggle_algorithm
-            pause
-            ;;
+        1) update_k1s_k1max; pause ;;
+        2) update_k1se; pause ;;
+        3) toggle_algorithm; pause ;;
         4)
-            echo_green "Выход из программы."
-            exit 0
+            if [ "$NEED_REBOOT" -eq 1 ]; then
+                echo_yellow "Изменения внесены — выполняется перезагрузка..."
+                reboot
+            else
+                echo_green "Изменений не обнаружено, перезагрузка не требуется."
+                exit 0
+            fi
             ;;
-        *)
-            echo_red "Неверный выбор, попробуйте снова."
-            pause
-            ;;
+        *) echo_red "Неверный выбор, попробуйте снова."; pause ;;
     esac
 done
