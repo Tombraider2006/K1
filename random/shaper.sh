@@ -144,13 +144,19 @@ while true; do
         1)
             update_k1s_k1max
             [ $? -eq 0 ] && echo_green "✔ Установка выполнена" || echo_red "✘ Ошибка установки"
+            printf "\nНажмите Enter для продолжения..."
+            read dummy
             ;;
         2)
             update_k1se
+            printf "\nНажмите Enter для продолжения..."
+            read dummy
             ;;
         3)
             rollback
             [ $? -eq 0 ] && echo_green "✔ Откат выполнен" || echo_red "✘ Ошибка отката"
+            printf "\nНажмите Enter для продолжения..."
+            read dummy
             ;;
         4)
             echo_green "Выход из программы."
@@ -158,6 +164,8 @@ while true; do
             ;;
         *)
             echo_red "Неверный выбор, попробуйте снова."
+            printf "\nНажмите Enter для продолжения..."
+            read dummy
             ;;
     esac
 done
