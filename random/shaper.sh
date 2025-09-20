@@ -13,6 +13,7 @@ CFG="/usr/data/printer_data/config/printer.cfg"
 KLIPPER_PATH="/usr/share/klipper/klippy"
 EXTRAS_PATH="$KLIPPER_PATH/extras"
 
+
 # === Шапка ===
 printf "$GREEN"
 cat << "EOF"
