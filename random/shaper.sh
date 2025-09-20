@@ -13,16 +13,6 @@ CFG="/usr/data/printer_data/config/printer.cfg"
 KLIPPER_PATH="/usr/share/klipper/klippy"
 EXTRAS_PATH="$KLIPPER_PATH/extras"
 
-
-# === Шапка ===
-printf "$GREEN"
-printf "=======================================================\n"
-printf " /\_/\   K1 / K1C / K1 Max Mods\n"
-printf "( o.o )  (by Tom Tomich)\n"
-printf " > ^ <   Автоматическое обновление и откат алгоритм shaper\n"
-printf "=======================================================\n"
-printf "$RESET\n"
-
 echo_green() { printf "$GREEN$1$RESET\n"; }
 echo_red()   { printf "$RED$1$RESET\n"; }
 echo_yellow(){ printf "$YELLOW$1$RESET\n"; }
@@ -132,6 +122,16 @@ rollback() {
 
 # === Меню ===
 while true; do
+    clear
+    # === Шапка ===
+    printf "$GREEN"
+    printf "=======================================================\n"
+    printf " /\\_/\\   K1 / K1C / K1 Max Mods\n"
+    printf "( o.o )  (by Tom Tomich)\n"
+    printf " > ^ <   Автоматическое обновление и откат алгоритм shaper\n"
+    printf "=======================================================\n"
+    printf "$RESET\n"
+
     printf "\n$GREENВыберите действие:$RESET\n"
     printf "  1) Установить обновление для K1 / K1C / K1 Max\n"
     printf "  2) Установка обновлений для K1SE (1.3.5.11) только!\n"
