@@ -60,6 +60,24 @@ update_k1s_k1max() {
     wget --no-check-certificate -q -P /usr/share/klipper/klippy/extras/ https://raw.githubusercontent.com/Konstant-3d/K1C-mods/refs/heads/main/usr/share/klipper/klippy/extras/shaper_calibrate.py
     chmod 644 resonance_tester.py shaper_calibrate.py
     sed -i 's/accel_per_hz: 75/accel_per_hz: 60/' /usr/data/printer_data/config/printer.cfg
+
+    if grep -q "sweeping_period:" /usr/data/printer_data/config/printer.cfg 2>/dev/null; then
+        sed -i 's/sweeping_period:.*/sweeping_period: 1.2/' /usr/data/printer_data/config/printer.cfg
+    elif grep -q "^\[resonance_tester\]" /usr/data/printer_data/config/printer.cfg 2>/dev/null; then
+        sed -i '/resonance_tester/{
+n
+n
+n
+n
+n
+n
+a\
+sweeping_period: 1.2
+}' /usr/data/printer_data/config/printer.cfg
+    else
+        echo_red "✘ Секция [resonance_tester] не найдена. sweeping_period не добавлен."
+    fi
+
     echo_green "✔ Установка завершена."
     NEED_REBOOT=1
 }
