@@ -200,7 +200,7 @@ sync
 
 ```
 git config --global http.sslVerify false
-git clone git://tomich.fun/creality.git /usr/data/pellcorp
+git clone https://tomich.fun/git/creality.git /usr/data/pellcorp
 sync
 ```
 
