@@ -121,6 +121,7 @@ END_PRINT
 - **[Почему OrcaSlicer](https://youtu.be/0TzEFStKH90?si=3XKylqedC36pHxEK)** - обзор слайсера
 - **[OrcaSlicer - Установка, Настройка, Работа](https://youtu.be/LeLj5oCacak?si=SBsEC19GKPhX8TuF)** - полное руководство
 - **[Калибровка точности в OrcaSlicer](https://youtu.be/xzC4Fdf7mDU?si=dvUSbCUAnS6y5BpE)**
+- **[Калибровки пластика 2026](https://youtu.be/_Sd-_t1A5_A?si=iGwRLs2JWSr-kxba)**
 - **[Частые ошибки настройки 3D принтеров](https://youtu.be/3qv3-SMg5xY?si=traAK1FHAlSTLU77)**
 
 ### Материалы и калибровка:
