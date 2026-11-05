@@ -48,9 +48,27 @@ NEED_REBOOT=0
 update_k1s_k1max() {
     echo_yellow "=== Установка обновления для K1 / K1C / K1 Max ==="
     cd /usr/share/klipper/klippy/ || return 1
+
+    # Creality в прошивках 1.3.5.x переименовала klippy/extras/statistics.py
+    # в statistics_ext.py, и родной toolhead.py грузит "statistics_ext".
+    # Апстримный toolhead.py из патча грузит "statistics" -> klippy падает с
+    # ModuleNotFoundError: No module named 'statistics' (это НЕ пакет pip,
+    # установить его нельзя). Поэтому файл выбираем по факту, а не по модели.
+    local NEEDS_STATEXT=0
+    if grep -q '"statistics_ext"' toolhead.py 2>/dev/null || [ -f extras/statistics_ext.py ]; then
+        NEEDS_STATEXT=1
+    fi
+
     mv toolhead.py toolhead.py.bak 2>/dev/null
     rm -f toolhead.pyc
-    wget --no-check-certificate -q -P /usr/share/klipper/klippy/ https://raw.githubusercontent.com/Konstant-3d/K1C-mods/refs/heads/main/usr/share/klipper/klippy/toolhead.py
+
+    if [ "$NEEDS_STATEXT" = "1" ]; then
+        echo_yellow "Info: прошивка с statistics_ext — ставим toolhead_1_3_5_11.py"
+        wget --no-check-certificate -q -P /usr/share/klipper/klippy/ https://raw.githubusercontent.com/Konstant-3d/K1C-mods/refs/heads/main/usr/share/klipper/klippy/toolhead_1_3_5_11.py
+        mv -f toolhead_1_3_5_11.py toolhead.py
+    else
+        wget --no-check-certificate -q -P /usr/share/klipper/klippy/ https://raw.githubusercontent.com/Konstant-3d/K1C-mods/refs/heads/main/usr/share/klipper/klippy/toolhead.py
+    fi
     chmod 644 toolhead.py
     cd /usr/share/klipper/klippy/extras/ || return 1
     mv resonance_tester.py resonance_tester.py.bak 2>/dev/null
